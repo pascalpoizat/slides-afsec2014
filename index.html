@@ -1,0 +1,155 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>Formal Development of Choreographic Business Processes: P. Poizat</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=792, user-scalable=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="stylesheet" href="shower/themes/kevoree/styles/screen.css">
+    <link rel="stylesheet" href="extra/css/ionicons.css">
+    <link rel="stylesheet" href="extra/font-awesome-4.0.3/css/font-awesome.min.css">
+    <!-- BEGIN for MathJax -->
+    <!-- IF MathJax is required, uncomment the following, get the MathJax distribution and install it under extra/ -->
+    <!--
+    <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+    tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
+  });
+
+    </script>
+    <script type="text/javascript" src="extra/MathJax-2.4/MathJax.js"></script>
+    <noscript>
+        <div style="color:#CC0000; text-align:center">
+            <b>Warning: <a href="http://www.mathjax.org/">MathJax</a>
+                requires JavaScript to process the mathematics on this page.<br/>
+                If your browser supports JavaScript, be sure it is enabled.</b>
+        </div>
+        <hr>
+    </noscript>
+    -->
+    <!-- END for MathJax -->
+    <script type="text/javascript"> <!--
+    http://forum.webrankinfo.com/anti-spam-crypter-une-adresse-email-sur-site-web-html-t57007.html -->
+            function mail(domain, str) {
+                window.location.href = "mailto:" + str + "@" + domain;
+            }
+    </script>
+</head>
+<body class="list">
+<header class="caption">
+    <h1>Formal Development of Choreographic Business Processes</h1>
+
+    <p>Journée "Méthodes formelles et processus métier", Paris, 16 octobre 2014
+        <br/>Pascal Poizat
+    </p>
+</header>
+
+<section class="slide cover" id="Cover">
+    <div>
+        <!-- <img src="pictures/Paris-Ouest-Nanterre-©-Université-Paris-Ouest-Nanterre-Service-communication.jpg" alt=""> -->
+        <img width="100%" src="pictures/bpmn4.png" alt="" style="opacity: 2">
+        <style>
+            .iconFont3 {
+                font-family: 'HeydingsCommonIconsRegular';
+            }
+
+            #Cover h2 {
+                margin: 0px 0 0;
+                text-align: center;
+                font-size: 50px;
+            }
+
+            #Cover p {
+                margin: 10px 0 0;
+                text-align: center;
+                color: #FFF;
+                font-style: italic;
+                font-size: 20px;
+            }
+
+            #Cover p a {
+                color: #FFF;
+            }
+        </style>
+        <div style="background-color:#FFF;position:absolute;top:20px;left:0px;width:650px;border-radius:0px 10px 10px 0px;height:170px;opacity:0.8;">
+            <h1 style="line-height: 36px"><strong class="kevOrange" style="margin-left:10px;"> Formal Development of
+                Choreographic Business
+                Processes</strong><br/>
+                <i class="kevGray" style="margin-left:10px; font-size:18px;"> Journée "Méthodes formelles et
+                    processus métier", Paris, 16 octobre 2014</i><br/>
+            </h1>
+
+            <p style="text-align:left;line-height: 18px;">
+                <strong class="kevOrange" style="margin-left:10px;font-size:20px;"> Pascal Poizat</strong><br/>
+                <i class="kevGray" style="margin-left:10px;font-size:14px;"> Université Paris
+                    Ouest Nanterre la Défense<!--, F-92001, Nanterre, France--></i><br/>
+                <i class="kevGray" style="margin-left:10px;font-size:14px;"> Sorbonne Universités, UPMC Univ Paris 06,
+                    UMR 7606, LIP6<!--, F-75005, Paris, France--></i><br/>
+                <i class="kevGray" style="margin-left:10px;font-size:14px;"> CNRS, UMR 7606, LIP6<!--, F-75005, Paris,
+                    France--></i><br/>
+            </p>
+        </div>
+
+        <div style="opacity:0.7;background-color:#FFF;position:absolute;bottom:20px;left:0px;width:120px;border-radius:0px 10px 10px 0px;height:100px;">
+            <img src="img/logo_MEDS.png" style="height:65px;padding-top:15px;padding-left:10px;"/>
+        </div>
+        <div style="opacity:0.7;background-color:#FFF;position:absolute;bottom:260px;right:0px;width:200px;border-radius:10px 0px 0px 10px;height:100px;">
+            <img src="img/logo_UPOND.jpg" style="height:60px;top:50%;margin-top:-30px;margin-left:18px;"/>
+        </div>
+        <div style="opacity:0.7;background-color:#FFF;position:absolute;align-content: center; bottom:140px;right:0px;width:200px;border-radius:10px 0px 0px 10px;height:100px;">
+            <img src="img/logo_SU.png" style="height:80px;top:50%;margin-top:-40px;margin-left:0px;"/>
+        </div>
+        <div style="opacity:0.7;background-color:#FFF;position:absolute;bottom:20px;right:0px;width:200px;border-radius:10px 0px 0px 10px;height:100px;">
+            <img src="img/logo_CNRS.jpg" style="height:60px;top:50%;margin-top:-30px;margin-left:18px;"/>
+        </div>
+
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2><span class="kevOrange kevIcon ion-compose"></span>Choreographies</h2>
+        <ul>
+            <li class="next" style="line-height: 32px;">distributed systems involve several peers<br />
+                <i class="kevGray">Alice (a), Bob (b), and Charles (c)</i>
+            </li><br/>
+            <li class="next" style="line-height: 32px;">one can have a local view on the system<br />
+                <i class="kevGray">a = get phone number from b ; give phone number to c</i><br/>
+                <i class="kevGray">b = give phone number to a ; talk to c</i><br/>
+                <i class="kevGray">c = obtain phone number from a ; talk with b</i><br/>
+            </li><br/>
+            <li class="next" style="line-height: 32px;">one can have a global view on the system<br />
+                <i class="kevGray">obtain phone [a,b] ; give information [a,c] ; talk [b,c]</i><br/>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<section class="slide shout">
+    <h2><span class="kevOrange kevIcon">></span>BPMN 2.0</h2>
+</section>
+
+<!--
+<section class="slide">
+    <div>
+        <h2><span class="kevOrange kevIcon"></span> Formules</h2>
+        <p>\[
+            \left( \sum_{k=1}^n a_k b_k \right)^{\!\!2} \leq
+            \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)
+            \]</p>
+    </div>
+</section>
+-->
+
+<!-- NE PAS TOUCHER LA SUITE -->
+
+<p class="badge"><a href="http://pagesperso-systeme.lip6.fr/Pascal.Poizat/">LIP6 / MoVe / MEDS</a></p>
+
+<div class="progress">
+    <div></div>
+</div>
+<script src="shower/shower.min.js"></script>
+</body>
+</html>
