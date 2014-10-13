@@ -127,9 +127,9 @@
         <ul>
             <li class="" style="line-height: 32px;">three participants : buyer, vendor, and shipper
             </li><br/>
-            <li style="line-height: 32px;">the <span class="kevOrange">buyer</span> issues requests about goods<br/>and is notified about abortion or gets the goods<br />
+            <li style="line-height: 32px;">the <span class="kevOrange">buyer</span> issues requests about goods<br/>and is notified about cancellation or gets the goods<br />
             </li><br/>
-            <li style="line-height: 32px;">the <span class="kevOrange">vendor</span>  checks if the goods are available<br/>and sends abortion notification or requests shipping<br />
+            <li style="line-height: 32px;">the <span class="kevOrange">vendor</span>  checks if the goods are available<br/>and sends cancellation notification or requests shipping<br />
             </li><br/>
             <li style="line-height: 32px;">the <span class="kevOrange">shipper</span>  ships goods upon request<br />
             </li><br/>
@@ -139,19 +139,23 @@
 
 <section class="slide">
     <div>
-        <h2><span class="kevOrange kevIcon ion-person"></span> Local View(s) over S-n-D</h2>
+        <h2><span class="kevOrange kevIcon ion-arrow-shrink"></span> Local Views over S-n-D</h2>
         <div style="position:absolute;top:170px;left:40px;">
-        <ul>
-            <li class="" style="line-height: 32px;"><span class="kevOrange">3</span> pieces of specification (BPMN)
-            </li>
-        </ul>
-        </div>
-        <div style="position:absolute;bottom:15px;left:10px;">
-            <img src="figures/snd_1.png" style="opacity:1; width:500px;padding-top:10px;padding-left:10px;"/>
+            <ul>
+                <li class="" style="line-height: 32px;">orchestration <span class="kevOrange">models</span>
+                </li><br/>
+                <li class="" style="line-height: 32px;">centered on <span class="kevOrange">a specific role</span><br/>
+                    <i class="kevGray">buyer <span style="text-decoration: underline;">or</span> vendor <span style="text-decoration: underline">or</span> shipper</i>
+                </li><br/>
+                <li class="" style="line-height: 32px;">the view is <span class="kevOrange">local</span> to the role of interest
+                </li><br/>
+                <li class="" style="line-height: 32px;">captures conversations<br/><span class="kevOrange">between the role and its partners</span><br/>
+                </li><br/>
+            </ul>
         </div>
         <div style="position:absolute;top:170px;right:40px;">
             <ul>
-                <li class="" style="line-height: 32px;"><span class="kevOrange">3</span> pieces of code (WS-BPEL inspired)
+                <li class="" style="line-height: 32px;">e.g., <span class="kevOrange">WS-BPEL</span> code
                 </li>
             </ul>
         </div>
@@ -160,7 +164,7 @@
 buyer = invoke(vendor, request);
         pick {
             onMessage(vendor, abort): ...;
-            onMessage(vendor, deliver): ...;
+            onMessage(shipper, deliver): ...;
         }
 ]]>
        </script></span>
@@ -170,7 +174,7 @@ vendor = receive(buyer, request);
          if (article is not available) {
             invoke(buyer, abort);
          } else {
-            invoke(seller, ship);
+            invoke(shipper, ship);
          }
 ]]>
        </script></span>
@@ -183,6 +187,83 @@ shipper = receive(vendor, ship);
     </div>
 </section>
 
+<section class="slide">
+    <div>
+        <h2><span class="kevOrange kevIcon ion-arrow-expand"></span> Global View over S-n-D</h2>
+        <div style="position:absolute;top:170px;left:40px;">
+        <ul>
+            <li class="" style="line-height: 32px;">choreography <span class="kevOrange">interconnection model</span>
+            </li><br/>
+            <li class="" style="line-height: 32px;">takes into account <span class="kevOrange">all roles</span><br/>
+                <i class="kevGray">buyer <span style="text-decoration: underline;">and</span> vendor <span style="text-decoration: underline">and</span> shipper</i>
+            </li><br/>
+            <li class="" style="line-height: 32px;">the view is <span class="kevOrange">global</span><br/>
+                with <span class="kevOrange">internal details</span> of the roles
+            </li><br/>
+            <li class="" style="line-height: 32px;">captures conversations<br/><span class="kevOrange">between all roles</span><br/>
+                interaction <span style="text-decoration: underline">is not</span> central
+            </li><br/>
+        </ul>
+        </div>
+        <div style="position:absolute;top:170px;right:40px;">
+            <ul>
+                <li class="" style="line-height: 32px;">e.g., <span class="kevOrange">BPMN collaboration</span> diagram
+                </li>
+            </ul>
+        </div>
+        <div style="position:absolute;bottom:15px;right:10px;">
+            <img src="figures/snd_1.png" style="opacity:1; width:500px;padding-top:10px;padding-left:10px;"/>
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2><span class="kevOrange kevIcon ion-arrow-expand"></span> Global View over S-n-D</h2>
+        <div style="position:absolute;top:170px;left:40px;">
+        <ul>
+            <li class="" style="line-height: 32px;">choreography <span class="kevOrange">interaction model</span>
+            </li><br/>
+            <li class="" style="line-height: 32px;">takes into account <span class="kevOrange">all roles</span><br/>
+                <i class="kevGray">buyer <span style="text-decoration: underline;">and</span> vendor <span style="text-decoration: underline">and</span> shipper</i>
+            </li><br/>
+            <li class="" style="line-height: 32px;">the view is <span class="kevOrange">global</span><br/>
+                without <span class="kevOrange">internal details</span> of the roles
+            </li><br/>
+            <li class="" style="line-height: 32px;">captures conversations<br/><span class="kevOrange">between all roles</span><br/>
+                interaction <span style="text-decoration: underline">is</span> central
+            </li><br/>
+        </ul>
+        </div>
+        <div style="position:absolute;top:170px;right:40px;">
+            <ul>
+                <li class="" style="line-height: 32px;">e.g., <span class="kevOrange">BPMN collaboration</span> diagram
+                </li>
+            </ul>
+        </div>
+        <div style="position:absolute;bottom:100px;right:10px;">
+            <img src="figures/snd_2.png" style="opacity:1; width:550px;padding-top:10px;padding-left:10px;"/>
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2><span class="kevOrange kevIcon ion-bag"></span> The Shop-n-Deliver Collaboration</h2>
+        <ul>
+            <li style="line-height: 32px;">local view: peers matter, good for <span class="kevOrange">implementation</span><br/><br/>
+                <span style="font-size: 18px;">The buyer issues requests about goods and is notified about cancellation or gets the goods.<br/>
+                The vendor checks if the goods are available and sends cancellation notification or requests shipping.
+                The shipper  ships goods upon request.</span>
+            </li><br/>
+            <li style="line-height: 32px;">global view: interactions matter, good for <span class="kevOrange">specification</span><br/><br/>
+                <span style="font-size: 18px;">A request for goods first takes place (buyer to vendor).<br/>
+                If the goods are available, a shipping request (vendor to shipper) and then a delivery (shipper to buyer) are achieved.
+                Else, a cancellation notification is sent (vendor to buyer).</span>
+            </li>
+        </ul>
+    </div>
+</section>
 
 <!--
 
