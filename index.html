@@ -30,6 +30,15 @@
     </noscript>
     -->
     <!-- END for MathJax -->
+    <!-- BEGIN for SyntaxHighlighter -->
+    <link type="text/css" rel="stylesheet" href="extra/syntaxhighlighter_3.0.83/styles/shCore.css"/>
+    <link type="text/css" rel="stylesheet" href="extra/shThemePascal.css"/>
+    <script type="text/javascript" src="extra/syntaxhighlighter_3.0.83/scripts/shCore.js"></script>
+    <script type="text/javascript" src="extra/syntaxhighlighter_3.0.83/scripts/shBrushPlain.js"></script>
+    <script type="text/javascript">SyntaxHighlighter.all();</script>
+
+    <!-- END for SyntaxHighlighter -->
+
     <script type="text/javascript"> <!--
     http://forum.webrankinfo.com/anti-spam-crypter-une-adresse-email-sur-site-web-html-t57007.html -->
             function mail(domain, str) {
@@ -108,6 +117,131 @@
     </div>
 </section>
 
+<section class="slide shout">
+    <h2><span class="kevOrange kevIcon">></span>Diving into Choreographies</h2>
+</section>
+
+<section class="slide">
+    <div>
+        <h2><span class="kevOrange kevIcon ion-bag"></span> The Shop-n-Deliver Collaboration</h2>
+        <ul>
+            <li class="" style="line-height: 32px;">three participants : buyer, vendor, and shipper
+            </li><br/>
+            <li style="line-height: 32px;">the <span class="kevOrange">buyer</span> issues requests about goods<br/>and is notified about abortion or gets the goods<br />
+            </li><br/>
+            <li style="line-height: 32px;">the <span class="kevOrange">vendor</span>  checks if the goods are available<br/>and sends abortion notification or requests shipping<br />
+            </li><br/>
+            <li style="line-height: 32px;">the <span class="kevOrange">shipper</span>  ships goods upon request<br />
+            </li><br/>
+        </ul>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2><span class="kevOrange kevIcon ion-person"></span> Local View(s) over S-n-D</h2>
+        <div style="position:absolute;top:170px;left:40px;">
+        <ul>
+            <li class="" style="line-height: 32px;"><span class="kevOrange">3</span> pieces of specification (BPMN)
+            </li>
+        </ul>
+        </div>
+        <div style="position:absolute;bottom:15px;left:10px;">
+            <img src="figures/snd_1.png" style="opacity:1; width:500px;padding-top:10px;padding-left:10px;"/>
+        </div>
+        <div style="position:absolute;top:170px;right:40px;">
+            <ul>
+                <li class="" style="line-height: 32px;"><span class="kevOrange">3</span> pieces of code (WS-BPEL inspired)
+                </li>
+            </ul>
+        </div>
+       <span style="font-size: 12pt; position:absolute;bottom:310px;left:540px;">
+        <script type="syntaxhighlighter" class="brush:plain toolbar:false;"><![CDATA[
+buyer = invoke(vendor, request);
+        pick {
+            onMessage(vendor, abort): ...;
+            onMessage(vendor, deliver): ...;
+        }
+]]>
+       </script></span>
+       <span style="font-size: 12pt; position:absolute;bottom:160px;left:540px;">
+            <script type="syntaxhighlighter" class="brush:plain toolbar:false;"><![CDATA[
+vendor = receive(buyer, request);
+         if (article is not available) {
+            invoke(buyer, abort);
+         } else {
+            invoke(seller, ship);
+         }
+]]>
+       </script></span>
+       <span style="font-size: 12pt; position:absolute;bottom:90px;left:540px;">
+            <script type="syntaxhighlighter" class="brush:plain toolbar:false;"><![CDATA[
+shipper = receive(vendor, ship);
+          invoke(buyer, deliver);
+]]>
+       </script></span>
+    </div>
+</section>
+
+
+<!--
+
+<section class="slide">
+    <div>
+        <h2><span class="kevOrange kevIcon ion-compose"></span>Online Shopping as a Collaboration</h2>
+        <div style="opacity:0.7;background-color:navajowhite;position:absolute;bottom:60px;left:60px;width:920px;border-radius:10px 10px 10px 10px;height:360px;">
+            <img src="figures/shopping_v1.png" style="opacity:1; width:900px;padding-top:10px;padding-left:10px;"/>
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2><span class="kevOrange kevIcon ion-compose"></span>Online Shopping as a Choreography</h2>
+        <div style="opacity:0.7;background-color:navajowhite;position:absolute;bottom:60px;left:60px;width:920px;border-radius:10px 10px 10px 10px;height:360px;">
+            <img src="figures/shopping_v1.png" style="opacity:1; width:900px;padding-top:10px;padding-left:10px;"/>
+        </div>
+    </div>
+</section>
+
+-->
+
+<section class="slide shout">
+    <h2><span class="kevOrange kevIcon">></span>Choreography Development</h2>
+</section>
+
+<section class="slide shout">
+    <h2><span class="kevOrange kevIcon">></span>Choreography Issues</h2>
+</section>
+
+<section class="slide shout">
+    <h2><span class="kevOrange kevIcon">></span>VerChor</h2>
+</section>
+
+<section class="slide shout">
+    <h2><span class="kevOrange kevIcon">></span>SChorA</h2>
+</section>
+
+<!--
+<section class="slide">
+    <div>
+        <h2><span class="kevOrange kevIcon ion-compose"></span>A Simple Business Process</h2>
+        <ul>
+            <li class="next" style="line-height: 32px;">distributed systems involve several peers<br />
+                <i class="kevGray">Alice (a), Bob (b), and Charles (c)</i>
+            </li><br/>
+            <li class="next" style="line-height: 32px;">one can have a local view on the system<br />
+                <i class="kevGray">a = get phone number from b ; give phone number to c</i><br/>
+                <i class="kevGray">b = give phone number to a ; talk to c</i><br/>
+                <i class="kevGray">c = obtain phone number from a ; talk with b</i><br/>
+            </li><br/>
+            <li class="next" style="line-height: 32px;">one can have a global view on the system<br />
+                <i class="kevGray">obtain phone [a,b] ; give information [a,c] ; talk [b,c]</i><br/>
+            </li>
+        </ul>
+    </div>
+</section>
+
 <section class="slide">
     <div>
         <h2><span class="kevOrange kevIcon ion-compose"></span>Choreographies</h2>
@@ -126,10 +260,7 @@
         </ul>
     </div>
 </section>
-
-<section class="slide shout">
-    <h2><span class="kevOrange kevIcon">></span>BPMN 2.0</h2>
-</section>
+-->
 
 <!--
 <section class="slide">
