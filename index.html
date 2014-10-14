@@ -127,11 +127,12 @@
     <div>
         <h2><span class="kevOrange kevIcon ion-bag"></span> The Shop-n-Deliver Collaboration</h2>
         <ul>
-            <li class="" style="line-height: 32px;">three participants : buyer, vendor, and shipper
+            <li class="" style="line-height: 32px;">three participants : <span class="kevOrange kevIcon ion-person"></span> buyer, <span class="kevOrange kevIcon ion-ios7-home"></span> vendor, and <span class="kevOrange kevIcon ion-plane"></span> shipper
             </li><br/>
-            <li style="line-height: 32px;">A <span class="kevOrange">request for goods</span> first takes place (buyer to vendor).</li><br/>
-            <li style="line-height: 32px;">If the goods are available, a <span class="kevOrange">shipping request</span> (vendor to shipper)<br/>and then a <span class="kevOrange">delivery</span> (shipper to buyer) are achieved.</li><br/>
-            <li style="line-height: 32px;">Else, a <span class="kevOrange">cancellation notification</span> is sent (vendor to buyer).</li><br/>
+            <li style="line-height: 32px;"><span class="kevGray kevIcon ion-person"></span> <span class="kevOrange kevIcon ion-email"></span> <span class="kevGray kevIcon ion-arrow-right-c"></span> <span class="kevGray kevIcon ion-ios7-home"></span> A <span class="kevOrange">request for goods</span> first takes place.</li><br/>
+            <li style="line-height: 32px;"><span class="kevGray kevIcon ion-ios7-home"></span> <span class="kevOrange kevIcon ion-clipboard"></span> <span class="kevGray kevIcon ion-arrow-right-c"></span> <span class="kevGray kevIcon ion-plane"></span> If the goods are available, a <span class="kevOrange">shipping request</span><br/>
+            <span class="kevGray kevIcon ion-person"></span> <span class="kevGray kevIcon ion-arrow-left-c"></span> <span class="kevOrange kevIcon ion-cube"></span> <span class="kevGray kevIcon ion-plane"></span> and then a <span class="kevOrange">delivery</span> are achieved.</li><br/>
+            <li style="line-height: 32px;"><span class="kevGray kevIcon ion-person"></span> <span class="kevGray kevIcon ion-arrow-left-c"></span> <span class="kevOrange kevIcon ion-thumbsdown"></span> <span class="kevGray kevIcon ion-ios7-home"></span> Else, a <span class="kevOrange">cancellation notification</span> is sent (vendor to buyer).</li><br/>
             <!--
             <li style="line-height: 32px;">the <span class="kevOrange">buyer</span> issues requests about goods<br/>and is notified about cancellation or gets the goods<br />
             </li><br/>
@@ -146,7 +147,7 @@
 
 <section class="slide">
     <div>
-        <h2><span class="kevOrange kevIcon ion-pinpoint"></span> Local Views over S-n-D</h2>
+        <h2><span class="kevOrange kevIcon ion-pinpoint"></span> Local Views over Shop-n-Deliver</h2>
         <div style="position:absolute;top:170px;left:40px;">
             <ul>
                 <li class="" style="line-height: 32px;">orchestration <span class="kevOrange">models</span>
@@ -196,7 +197,7 @@ shipper = receive(vendor, ship);
 
 <section class="slide">
     <div>
-        <h2><span class="kevOrange kevIcon ion-earth"></span> Global View over S-n-D</h2>
+        <h2><span class="kevOrange kevIcon ion-earth"></span> Global View over Shop-n-Deliver</h2>
         <div style="position:absolute;top:170px;left:40px;">
         <ul>
             <li class="" style="line-height: 32px;">choreography <span class="kevOrange">interconnection model</span>
@@ -226,7 +227,7 @@ shipper = receive(vendor, ship);
 
 <section class="slide">
     <div>
-        <h2><span class="kevOrange kevIcon ion-earth"></span> Global View over S-n-D</h2>
+        <h2><span class="kevOrange kevIcon ion-earth"></span> Global View over Shop-n-Deliver</h2>
         <div style="position:absolute;top:170px;left:40px;">
         <ul>
             <li class="" style="line-height: 32px;">choreography <span class="kevOrange">interaction model</span>
@@ -257,17 +258,17 @@ shipper = receive(vendor, ship);
 
 <section class="slide">
     <div>
-        <h2><span class="kevOrange kevIcon ion-bag"></span> The Shop-n-Deliver Collaboration</h2>
+        <h2><span class="kevOrange kevIcon ion-bag"></span> The Shop-n-Deliver Conclusion</h2>
         <ul>
-            <li style="line-height: 32px;">global view: interactions matter, good for <span class="kevOrange">specification</span><br/><br/>
-                <span style="font-size: 18px;">A request for goods first takes place (buyer to vendor).<br/>
+            <li style="line-height: 32px;"><span class="kevOrange kevIcon ion-earth"></span> global view: <span class="kevOrange kevIcon ion-chatboxes"></span> interactions matter, good for <span class="kevOrange">specification</span><br/><br/>
+                <span style="font-size: 18px;" class="kevGray"><span class="kevGray kevIcon ion-quote"></span> A request for goods first takes place (buyer to vendor).<br/>
                 If the goods are available, a shipping request (vendor to shipper) and then a delivery (shipper to buyer) are achieved.
-                Else, a cancellation notification is sent (vendor to buyer).</span>
+                Else, a cancellation notification is sent (vendor to buyer). <span class="kevGray kevIcon ion-quote"></span></span>
             </li><br/>
-            <li style="line-height: 32px;">local view: peers matter, good for <span class="kevOrange">implementation</span><br/><br/>
-                <span style="font-size: 18px;">The buyer issues requests about goods and is notified about cancellation or gets the goods.<br/>
+            <li style="line-height: 32px;"><span class="kevOrange kevIcon ion-pinpoint"></span> local view: <span class="kevOrange kevIcon ion-person-stalker"></span> peers matter, good for <span class="kevOrange">implementation</span><br/><br/>
+                <span style="font-size: 18px;" class="kevGray"><span class="kevGray kevIcon ion-quote"></span> The buyer issues requests about goods and is notified about cancellation or gets the goods.<br/>
                 The vendor checks if the goods are available and sends cancellation notification or requests shipping.
-                The shipper  ships goods upon request.</span>
+                The shipper ships goods upon request. <span class="kevGray kevIcon ion-quote"></span></span>
             </li><br/>
         </ul>
     </div>
@@ -279,7 +280,34 @@ shipper = receive(vendor, ship);
 
 <section class="slide">
     <div>
-        <h2><span class="kevOrange kevIcon ion-clipboard"></span> A Comment on (Formal) Models</h2>
+        <h2><span class="kevOrange kevIcon ion-arrow-down-c"></span> Top-Down vs <span class="kevOrange kevIcon ion-arrow-up-c"></span> Bottom-Up Development</h2>
+        <ul>
+            <li style="line-height: 32px;"><span class="kevOrange">Top-down</span> development (generative programming)<br/>
+                <i class="kevGray" style="font-size: 20px;">1. interaction skeletons are <span class="kevOrange kevIcon ion-gear-b"></span> generated from the choreography<br/>
+                2. these skeletons are <span class="kevOrange kevIcon ion-person"></span> implemented</i>
+            </li>
+            <li style="line-height: 32px;width: 820px;" class="next"><span class="kevOrange">Bottom-up</span> development (verified reuse)<br/>
+                <i class="kevGray" style="font-size: 20px;">1. peers (<span class="kevOrange kevIcon ion-person"></span> reused at design time or <span class="kevOrange kevIcon ion-gear-b"></span> bound at runtime) come with contracts<br/>
+                2. contracts are used to <span class="kevOrange kevIcon ion-gear-b"></span> check if the collaboration conforms to the choreography<br/>
+                <ul>
+                    <li>this can be done locally (peer&leftrightarrow;role) or globally (peers&leftrightarrow;choreography)</li>
+                    <li>this can be done at design time (active testing, model-checking)<br/>or at runtime (passive testing)</li>
+                </ul>
+                </i>
+            </li>
+            <li style="line-height: 32px;width: 820px;" class="next">Both development processes ground on formal <span class="kevOrange">properties</span> and <span class="kevOrange">techniques</span><br/>
+                <i class="kevGray" style="font-size: 20px;"><ul>
+                    <li><span class="kevOrange kevIcon ion-thermometer"></span> synchronizability, realizability, conformance</li>
+                    <li><span class="kevOrange kevIcon ion-settings"></span> projection, synchronous and asynchronous products, equivalence checking</li>
+                </ul></i>
+            </li><br/>
+        </ul>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2><span class="kevOrange kevIcon ion-speakerphone"></span> A Comment on (Formal) Models</h2>
         <ul>
             <li style="line-height: 32px;"><span class="kevOrange">Transition Systems</span> (LTS, STG) are used in the sequel as formal models<br/>
                 <i class="kevGray" style="font-size: 24px;">in these models, ! stands for emission and ? stands for reception</i>
@@ -292,19 +320,21 @@ shipper = receive(vendor, ship);
         </ul>
         <div style="position:absolute;bottom:5px;right:30px;">
             <img src="figures/models.png" style="opacity:1; width:980px;padding-top:10px;padding-left:10px;"/>
-        </div>    </div>
+        </div>
+    </div>
 </section>
 
 <section class="slide">
     <div>
-        <h2><span class="kevOrange kevIcon ion-thermometer"></span> Properties: Synchronizability (<span class="kevIcon ion-arrow-down-c"></span><span class="kevIcon ion-arrow-up-c"></span>)</h2>
+        <h2><span class="kevOrange kevIcon ion-thermometer"></span> Synchronizability (<span class="kevIcon ion-arrow-down-c"></span><span class="kevIcon ion-arrow-up-c"></span>)</h2>
         <ul>
             <li style="line-height: 32px;"><span class="kevOrange">synchronizable?(P1, ..., Pn)</span> &DoubleLeftRightArrow; synch(P1, ..., Pn) &equiv; asynch(P1, ..., Pn)<br/>
-                <i style="font-size: 20px;" class="kevGray">where synch is the synchronous product and asynch is the asynchronous product (buffers)</i>
-
-            <span class="kevOrange">synchronizable?(P1, ..., Pn)</span> &DoubleLeftRightArrow; synch(P1, ..., Pn) &equiv; asynch-1(P1, ..., Pn)<br/>
+                <i style="font-size: 20px;" class="kevGray">where synch is the synchronous product and asynch is the asynchronous product (buffers)</i><br/>
+                <i style="font-size: 20px;" class="kevGray">takes into account the emission time in the asynchronous product</i><br/>
+            </li>
+            <li style="line-height: 32px;"><span class="kevOrange">synchronizable?(P1, ..., Pn)</span> &DoubleLeftRightArrow; synch(P1, ..., Pn) &equiv; asynch-1(P1, ..., Pn)<br/>
                 <i style="font-size: 20px;" class="kevGray">[Basu et al, POPL'12], where asynch-1 is the 1-bounded asynchronous product</i>
-            </li><br/>
+            </li>
             <li style="line-height: 32px;"><span class="kevOrange">synchronizable?(C)</span> &DoubleLeftRightArrow; synchronizable?(C&downarrow;1, ..., C&downarrow;n)<br/>
             </li><br/>
         </ul>
@@ -316,19 +346,53 @@ shipper = receive(vendor, ship);
 
 <section class="slide">
     <div>
-        <h2><span class="kevOrange kevIcon ion-thermometer"></span> Properties: Realizability (<span class="kevIcon ion-arrow-down-c"></span>)</h2>
+        <h2><span class="kevOrange kevIcon ion-thermometer"></span> Realizability (<span class="kevIcon ion-arrow-down-c"></span>) & Conformance (<span class="kevIcon ion-arrow-up-c"></span>)</h2>
         <ul>
-            <li style="line-height: 32px;"> <span class="kevOrange">realizable?(P1, ..., Pn)</span> &DoubleLeftRightArrow; C &equiv; &Pi;(C&downarrow;1, ..., C&downarrow;n)<br/>
+            <li style="line-height: 32px;"> <span class="kevOrange">realizable?(C)</span> &DoubleLeftRightArrow; C &equiv; &Pi;(C&downarrow;1, ..., C&downarrow;n)<br/>
                 <i style="font-size: 20px;" class="kevGray">where &Pi; is an operation that yields the semantics of the peers collaboration</i><br/>
                 <i style="font-size: 20px;" class="kevGray">different definitions in, e.g., [Kazhamiakin and Pistore, FORTE'06] and [Basu et al, POPL'12]</i>
-            </li><br/>
+            </li>
             <li style="line-height: 32px;"> <span class="kevOrange">realizable?(C)</span> &DoubleLeftRightArrow; synchronizable?(C&downarrow;1, ..., C&downarrow;n) &wedge; C &equiv; synch(C&downarrow;1, ..., C&downarrow;n)<br/>
                 <i style="font-size: 20px;" class="kevGray">[Basu et al, POPL'12]</i>
+            </li>
+            <li style="line-height: 32px;width: 820px;"> <span class="kevOrange">conform?(C, P1, ..., Pn)</span> &DoubleLeftRightArrow; synchronizable?(P1, ..., Pn) &wedge; C &equiv; synch(P1, ..., Pn)<br/>
+            </li><br/>
+        </ul>
+        <div style="position:absolute;bottom:5px;right:30px;">
+            <img src="figures/realizability.png" style="opacity:1; width:980px;padding-top:10px;padding-left:10px;"/>
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2><span class="kevOrange kevIcon ion-settings"></span> Enforcing Realizability & Conformance</h2>
+        <ul>
+            <li style="line-height: 32px;"> <span class="kevOrange">language constraints</span>  (for <span class="kevOrange kevIcon ion-arrow-down-c"></span> only, but requires over-specification)<br/>
+                <i style="font-size: 20px;" class="kevGray">e.g., dominant roles specify which roles will implement choices such as x[a,b] + y[c,d]</i>
+            </li><br/>
+            <li style="line-height: 32px;"> <span class="kevOrange">well-formedness rules</span> (for <span class="kevOrange kevIcon ion-arrow-down-c"></span> only, but requires over-specification)<br/>
+                <i style="font-size: 20px;" class="kevGray">e.g., forbid x[a,b] ; y[c,d] since c has no way to know that x has been achieved before sending y</i>
+            </li><br/>
+<!-- TODO
+            <li style="line-height: 32px;"> <span class="kevOrange">local enforceability</span><br/>
+            </li>
+-->
+            <li style="line-height: 32px;"> <span class="kevOrange">intrusive control</span> (for <span class="kevOrange kevIcon ion-arrow-down-c"></span> only)<br/>
+                <i style="font-size: 20px;" class="kevGray">e.g., smart projection to add interactions in the peers C&downarrow;1, ..., C&downarrow;n</i>
+            </li><br/>
+            <li style="line-height: 32px;"> <span class="kevOrange">non-intrusive control</span> (for <span class="kevOrange kevIcon ion-arrow-up-c"></span> mainly)<br/>
+                <i style="font-size: 20px;" class="kevGray">generate local controllers K1, ..., Kn for the peers C&downarrow;1, ..., C&downarrow;n</i>
             </li><br/>
         </ul>
     </div>
 </section>
 
+<section class="slide shout">
+    <h2><span class="kevOrange kevIcon">></span>VerChor</h2>
+</section>
+
+<!--
 <section class="slide">
     <div>
         <h2><span class="kevOrange kevIcon ion-thermometer"></span> Properties: Repairability (<span class="kevIcon ion-arrow-down-c"></span><span class="kevIcon ion-arrow-up-c"></span>)</h2>
@@ -340,27 +404,15 @@ shipper = receive(vendor, ship);
         <h2><span class="kevOrange kevIcon ion-settings"></span> Process: Controller Generation (<span class="kevIcon ion-arrow-down-c"></span><span class="kevIcon ion-arrow-up-c"></span>)</h2>
     </div>
 </section>
+-->
 
 <section class="slide">
     <div>
-        <h2><span class="kevOrange kevIcon ion-map"></span> The Global (Formal) Picture</h2>
-        <div style="position:absolute;bottom:0px;right:20px;">
-            <img src="figures/verif_choreo.png" style="opacity:1; width:950px;padding-top:10px;padding-left:10px;"/>
-        </div>
-    </div>
-</section>
-
-<section class="slide">
-    <div>
-        <h2><span class="kevOrange kevIcon ion-arrow-down-c"></span> Choreography Development Reloaded</h2>
+        <h2><span class="kevOrange kevIcon ion-arrow-down-c"></span> Choreography Development in VerChor</h2>
         <div style="position:absolute;bottom:0px;right:20px;">
             <img src="figures/methodo2.png" style="opacity:1; width:950px;padding-top:10px;padding-left:10px;"/>
         </div>
     </div>
-</section>
-
-<section class="slide shout">
-    <h2><span class="kevOrange kevIcon">></span>VerChor</h2>
 </section>
 
 <section class="slide shout">
