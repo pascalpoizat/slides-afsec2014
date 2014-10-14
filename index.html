@@ -146,7 +146,7 @@
 
 <section class="slide">
     <div>
-        <h2><span class="kevOrange kevIcon ion-arrow-shrink"></span> Local Views over S-n-D</h2>
+        <h2><span class="kevOrange kevIcon ion-pinpoint"></span> Local Views over S-n-D</h2>
         <div style="position:absolute;top:170px;left:40px;">
             <ul>
                 <li class="" style="line-height: 32px;">orchestration <span class="kevOrange">models</span>
@@ -166,7 +166,7 @@
                 </li>
             </ul>
         </div>
-       <span style="font-size: 12pt; position:absolute;bottom:310px;left:540px;">
+       <span style="font-size: 12pt; position:absolute;bottom:300px;left:540px;">
         <script type="syntaxhighlighter" class="brush:plain toolbar:false;"><![CDATA[
 buyer = invoke(vendor, request);
         pick {
@@ -196,7 +196,7 @@ shipper = receive(vendor, ship);
 
 <section class="slide">
     <div>
-        <h2><span class="kevOrange kevIcon ion-arrow-expand"></span> Global View over S-n-D</h2>
+        <h2><span class="kevOrange kevIcon ion-earth"></span> Global View over S-n-D</h2>
         <div style="position:absolute;top:170px;left:40px;">
         <ul>
             <li class="" style="line-height: 32px;">choreography <span class="kevOrange">interconnection model</span>
@@ -226,7 +226,7 @@ shipper = receive(vendor, ship);
 
 <section class="slide">
     <div>
-        <h2><span class="kevOrange kevIcon ion-arrow-expand"></span> Global View over S-n-D</h2>
+        <h2><span class="kevOrange kevIcon ion-earth"></span> Global View over S-n-D</h2>
         <div style="position:absolute;top:170px;left:40px;">
         <ul>
             <li class="" style="line-height: 32px;">choreography <span class="kevOrange">interaction model</span>
@@ -279,15 +279,33 @@ shipper = receive(vendor, ship);
 
 <section class="slide">
     <div>
-        <h2><span class="kevOrange kevIcon ion-wrench"></span> Properties: Synchronizability</h2>
+        <h2><span class="kevOrange kevIcon ion-clipboard"></span> A Comment on (Formal) Models</h2>
         <ul>
-            <li style="line-height: 32px;"><span class="kevOrange">synchronizable?(P1, ..., Pn)</span> iff synch(P1, ..., Pn) &equiv; asynch(P1, ..., Pn)<br/>
+            <li style="line-height: 32px;"><span class="kevOrange">Transition Systems</span> (LTS, STG) are used in the sequel as formal models<br/>
+                <i class="kevGray" style="font-size: 24px;">in these models, ! stands for emission and ? stands for reception</i>
+            </li><br/>
+            <li style="line-height: 32px;">Transition Systems are the <span class="kevOrange">semantics</span> of different formal languages,<br/>
+                <i class="kevGray" style="font-size: 24px;">e.g., Process Algebras (LNT, Chor)</i><br/>
+            Transition Systems may also result from <span class="kevOrange">model transformations</span><br/>
+            <i class="kevGray" style="font-size: 24px;">e.g., from Business Process languages and notations (WS-BPEL, BPMN)</i>
+            </li><br/>
+        </ul>
+        <div style="position:absolute;bottom:5px;right:30px;">
+            <img src="figures/models.png" style="opacity:1; width:980px;padding-top:10px;padding-left:10px;"/>
+        </div>    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2><span class="kevOrange kevIcon ion-thermometer"></span> Properties: Synchronizability (<span class="kevIcon ion-arrow-down-c"></span><span class="kevIcon ion-arrow-up-c"></span>)</h2>
+        <ul>
+            <li style="line-height: 32px;"><span class="kevOrange">synchronizable?(P1, ..., Pn)</span> &DoubleLeftRightArrow; synch(P1, ..., Pn) &equiv; asynch(P1, ..., Pn)<br/>
                 <i style="font-size: 20px;" class="kevGray">where synch is the synchronous product and asynch is the asynchronous product (buffers)</i>
 
-            <span class="kevOrange">synchronizable?(P1, ..., Pn)</span> iff synch(P1, ..., Pn) &equiv; asynch-1(P1, ..., Pn)<br/>
+            <span class="kevOrange">synchronizable?(P1, ..., Pn)</span> &DoubleLeftRightArrow; synch(P1, ..., Pn) &equiv; asynch-1(P1, ..., Pn)<br/>
                 <i style="font-size: 20px;" class="kevGray">[Basu et al, POPL'12], where asynch-1 is the 1-bounded asynchronous product</i>
             </li><br/>
-            <li style="line-height: 32px;"><span class="kevOrange">synchronizable?(C)</span> iff synchronizable?(C&downarrow;1, ..., C&downarrow;n)<br/>
+            <li style="line-height: 32px;"><span class="kevOrange">synchronizable?(C)</span> &DoubleLeftRightArrow; synchronizable?(C&downarrow;1, ..., C&downarrow;n)<br/>
             </li><br/>
         </ul>
         <div style="position:absolute;bottom:5px;right:30px;">
@@ -298,15 +316,14 @@ shipper = receive(vendor, ship);
 
 <section class="slide">
     <div>
-        <h2><span class="kevOrange kevIcon ion-wrench"></span> Properties: Realizability</h2>
+        <h2><span class="kevOrange kevIcon ion-thermometer"></span> Properties: Realizability (<span class="kevIcon ion-arrow-down-c"></span>)</h2>
         <ul>
-            <li style="line-height: 32px;"> <span class="kevOrange">synchronizable?(P1, ..., Pn)</span> iff synch(P1, ..., Pn) &equiv; asynch(P1, ..., Pn)<br/>
-                <i style="font-size: 20px;" class="kevGray">where synch is the synchronous product and asynch is the asynchronous product (buffers)</i>
+            <li style="line-height: 32px;"> <span class="kevOrange">realizable?(P1, ..., Pn)</span> &DoubleLeftRightArrow; C &equiv; &Pi;(C&downarrow;1, ..., C&downarrow;n)<br/>
+                <i style="font-size: 20px;" class="kevGray">where &Pi; is an operation that yields the semantics of the peers collaboration</i><br/>
+                <i style="font-size: 20px;" class="kevGray">different definitions in, e.g., [Kazhamiakin and Pistore, FORTE'06] and [Basu et al, POPL'12]</i>
             </li><br/>
-            <li style="line-height: 32px;"> <span class="kevOrange">synchronizable?(P1, ..., Pn)</span> iff synch(P1, ..., Pn) &equiv; asynch-1(P1, ..., Pn)<br/>
-                <i style="font-size: 20px;" class="kevGray">[Basu et al, POPL'12], where asynch-1 is the 1-bounded asynchronous product</i>
-            </li><br/>
-            <li style="line-height: 32px;"> <span class="kevOrange">synchronizable?(C)</span> iff synchronizable?(C&downarrow;1, ..., C&downarrow;n)<br/>
+            <li style="line-height: 32px;"> <span class="kevOrange">realizable?(C)</span> &DoubleLeftRightArrow; synchronizable?(C&downarrow;1, ..., C&downarrow;n) &wedge; C &equiv; synch(C&downarrow;1, ..., C&downarrow;n)<br/>
+                <i style="font-size: 20px;" class="kevGray">[Basu et al, POPL'12]</i>
             </li><br/>
         </ul>
     </div>
@@ -314,17 +331,13 @@ shipper = receive(vendor, ship);
 
 <section class="slide">
     <div>
-        <h2><span class="kevOrange kevIcon ion-wrench"></span> Properties: Repairability</h2>
-        <ul>
-            <li style="line-height: 32px;"> <span class="kevOrange">synchronizable?(P1, ..., Pn)</span> iff synch(P1, ..., Pn) &equiv; asynch(P1, ..., Pn)<br/>
-                <i style="font-size: 20px;" class="kevGray">where synch is the synchronous product and asynch is the asynchronous product (buffers)</i>
-            </li><br/>
-            <li style="line-height: 32px;"> <span class="kevOrange">synchronizable?(P1, ..., Pn)</span> iff synch(P1, ..., Pn) &equiv; asynch-1(P1, ..., Pn)<br/>
-                <i style="font-size: 20px;" class="kevGray">[Basu et al, POPL'12], where asynch-1 is the 1-bounded asynchronous product</i>
-            </li><br/>
-            <li style="line-height: 32px;"> <span class="kevOrange">synchronizable?(C)</span> iff synchronizable?(C&downarrow;1, ..., C&downarrow;n)<br/>
-            </li><br/>
-        </ul>
+        <h2><span class="kevOrange kevIcon ion-thermometer"></span> Properties: Repairability (<span class="kevIcon ion-arrow-down-c"></span><span class="kevIcon ion-arrow-up-c"></span>)</h2>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2><span class="kevOrange kevIcon ion-settings"></span> Process: Controller Generation (<span class="kevIcon ion-arrow-down-c"></span><span class="kevIcon ion-arrow-up-c"></span>)</h2>
     </div>
 </section>
 
@@ -337,6 +350,15 @@ shipper = receive(vendor, ship);
     </div>
 </section>
 
+<section class="slide">
+    <div>
+        <h2><span class="kevOrange kevIcon ion-arrow-down-c"></span> Choreography Development Reloaded</h2>
+        <div style="position:absolute;bottom:0px;right:20px;">
+            <img src="figures/methodo2.png" style="opacity:1; width:950px;padding-top:10px;padding-left:10px;"/>
+        </div>
+    </div>
+</section>
+
 <section class="slide shout">
     <h2><span class="kevOrange kevIcon">></span>VerChor</h2>
 </section>
@@ -344,58 +366,6 @@ shipper = receive(vendor, ship);
 <section class="slide shout">
     <h2><span class="kevOrange kevIcon">></span>SChorA</h2>
 </section>
-
-<!--
-<section class="slide">
-    <div>
-        <h2><span class="kevOrange kevIcon ion-compose"></span>A Simple Business Process</h2>
-        <ul>
-            <li class="next" style="line-height: 32px;">distributed systems involve several peers<br />
-                <i class="kevGray">Alice (a), Bob (b), and Charles (c)</i>
-            </li><br/>
-            <li class="next" style="line-height: 32px;">one can have a local view on the system<br />
-                <i class="kevGray">a = get phone number from b ; give phone number to c</i><br/>
-                <i class="kevGray">b = give phone number to a ; talk to c</i><br/>
-                <i class="kevGray">c = obtain phone number from a ; talk with b</i><br/>
-            </li><br/>
-            <li class="next" style="line-height: 32px;">one can have a global view on the system<br />
-                <i class="kevGray">obtain phone [a,b] ; give information [a,c] ; talk [b,c]</i><br/>
-            </li>
-        </ul>
-    </div>
-</section>
-
-<section class="slide">
-    <div>
-        <h2><span class="kevOrange kevIcon ion-compose"></span>Choreographies</h2>
-        <ul>
-            <li class="next" style="line-height: 32px;">distributed systems involve several peers<br />
-                <i class="kevGray">Alice (a), Bob (b), and Charles (c)</i>
-            </li><br/>
-            <li class="next" style="line-height: 32px;">one can have a local view on the system<br />
-                <i class="kevGray">a = get phone number from b ; give phone number to c</i><br/>
-                <i class="kevGray">b = give phone number to a ; talk to c</i><br/>
-                <i class="kevGray">c = obtain phone number from a ; talk with b</i><br/>
-            </li><br/>
-            <li class="next" style="line-height: 32px;">one can have a global view on the system<br />
-                <i class="kevGray">obtain phone [a,b] ; give information [a,c] ; talk [b,c]</i><br/>
-            </li>
-        </ul>
-    </div>
-</section>
--->
-
-<!--
-<section class="slide">
-    <div>
-        <h2><span class="kevOrange kevIcon"></span> Formules</h2>
-        <p>\[
-            \left( \sum_{k=1}^n a_k b_k \right)^{\!\!2} \leq
-            \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)
-            \]</p>
-    </div>
-</section>
--->
 
 <!-- NE PAS TOUCHER LA SUITE -->
 

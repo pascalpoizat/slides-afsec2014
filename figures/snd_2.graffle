@@ -28,18 +28,6 @@
 		<integer>2</integer>
 		<key>Style</key>
 		<dict>
-			<key>fill</key>
-			<dict>
-				<key>Color</key>
-				<dict>
-					<key>b</key>
-					<string>0</string>
-					<key>g</key>
-					<string>0.615686</string>
-					<key>r</key>
-					<string>0.87451</string>
-				</dict>
-			</dict>
 			<key>shadow</key>
 			<dict>
 				<key>Draws</key>
@@ -880,8 +868,8 @@
 			<real>-1</real>
 			<key>Points</key>
 			<array>
-				<string>{329.50108329181461, 317.35064794838485}</string>
-				<string>{350.74398811593801, 317.34462360172552}</string>
+				<string>{329.50108337402116, 317.36084064819812}</string>
+				<string>{350.74398803710181, 317.35952331551198}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -1773,7 +1761,7 @@
 					<array>
 						<dict>
 							<key>Bounds</key>
-							<string>{{194.98229593912728, 221.69444661458337}, {10.5374, 11.339}}</string>
+							<string>{{194.98229593912728, 221.6944466145834}, {10.5374, 11.339}}</string>
 							<key>Class</key>
 							<string>ShapedGraphic</string>
 							<key>ID</key>
@@ -1824,7 +1812,7 @@
 						</dict>
 						<dict>
 							<key>Bounds</key>
-							<string>{{194.98229593912728, 221.69444661458337}, {10.5374, 11.339}}</string>
+							<string>{{194.98229593912728, 221.6944466145834}, {10.5374, 11.339}}</string>
 							<key>Class</key>
 							<string>ShapedGraphic</string>
 							<key>HFlip</key>
@@ -1888,7 +1876,7 @@
 					<array>
 						<dict>
 							<key>Bounds</key>
-							<string>{{194.98229593912728, 221.69444661458337}, {10.5374, 11.339}}</string>
+							<string>{{194.98229593912728, 221.6944466145834}, {10.5374, 11.339}}</string>
 							<key>Class</key>
 							<string>ShapedGraphic</string>
 							<key>HFlip</key>
@@ -1941,7 +1929,7 @@
 						</dict>
 						<dict>
 							<key>Bounds</key>
-							<string>{{194.98229593912728, 221.69444661458337}, {10.5374, 11.339}}</string>
+							<string>{{194.98229593912728, 221.6944466145834}, {10.5374, 11.339}}</string>
 							<key>Class</key>
 							<string>ShapedGraphic</string>
 							<key>ID</key>
@@ -2134,7 +2122,7 @@
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2014-10-14 06:09:06 +0000</string>
+	<string>2014-10-14 09:13:49 +0000</string>
 	<key>Modifier</key>
 	<string>Pascal Poizat</string>
 	<key>NotesVisible</key>
