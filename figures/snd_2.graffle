@@ -28,6 +28,18 @@
 		<integer>2</integer>
 		<key>Style</key>
 		<dict>
+			<key>fill</key>
+			<dict>
+				<key>Color</key>
+				<dict>
+					<key>b</key>
+					<string>0</string>
+					<key>g</key>
+					<string>0.615686</string>
+					<key>r</key>
+					<string>0.87451</string>
+				</dict>
+			</dict>
 			<key>shadow</key>
 			<dict>
 				<key>Draws</key>
@@ -753,7 +765,7 @@
 			<real>-1</real>
 			<key>Points</key>
 			<array>
-				<string>{200.25054593912733, 241.53694661458331}</string>
+				<string>{200.25054593912728, 241.53694661458331}</string>
 				<string>{238.50112152099609, 318}</string>
 			</array>
 			<key>Style</key>
@@ -809,7 +821,7 @@
 			<real>-1</real>
 			<key>Points</key>
 			<array>
-				<string>{200.25054593912733, 213.19044661458338}</string>
+				<string>{200.25054593912728, 213.19044661458338}</string>
 				<string>{238.50112152099609, 136}</string>
 			</array>
 			<key>Style</key>
@@ -868,8 +880,8 @@
 			<real>-1</real>
 			<key>Points</key>
 			<array>
-				<string>{329.50108322005275, 317.33581088433186}</string>
-				<string>{350.74398842709451, 317.32293474457691}</string>
+				<string>{329.50108329181461, 317.35064794838485}</string>
+				<string>{350.74398811593801, 317.34462360172552}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -2122,7 +2134,7 @@
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2014-10-13 19:52:46 +0000</string>
+	<string>2014-10-14 06:09:06 +0000</string>
 	<key>Modifier</key>
 	<string>Pascal Poizat</string>
 	<key>NotesVisible</key>

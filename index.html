@@ -58,7 +58,7 @@
 <section class="slide cover" id="Cover">
     <div>
         <!-- <img src="pictures/Paris-Ouest-Nanterre-©-Université-Paris-Ouest-Nanterre-Service-communication.jpg" alt=""> -->
-        <img width="100%" src="pictures/bpmn4.png" alt="" style="opacity: 2">
+        <img width="100%" src="pictures/bpmn1_w.png" alt="" style="opacity: 0.7">
         <style>
             .iconFont3 {
                 font-family: 'HeydingsCommonIconsRegular';
@@ -82,7 +82,7 @@
                 color: #FFF;
             }
         </style>
-        <div style="background-color:#FFF;position:absolute;top:20px;left:0px;width:650px;border-radius:0px 10px 10px 0px;height:170px;opacity:0.8;">
+        <div style="background-color:#FFF;position:absolute;top:20px;left:0px;width:650px;border-radius:0px 10px 10px 0px;height:210px;opacity:0.8;">
             <h1 style="line-height: 36px"><strong class="kevOrange" style="margin-left:10px;"> Formal Development of
                 Choreographic Business
                 Processes</strong><br/>
@@ -97,7 +97,9 @@
                 <i class="kevGray" style="margin-left:10px;font-size:14px;"> Sorbonne Universités, UPMC Univ Paris 06,
                     UMR 7606, LIP6<!--, F-75005, Paris, France--></i><br/>
                 <i class="kevGray" style="margin-left:10px;font-size:14px;"> CNRS, UMR 7606, LIP6<!--, F-75005, Paris,
-                    France--></i><br/>
+                    France--></i><br/><br>
+                <strong class="kevOrange" style="margin-left:10px;font-size:14px;"> joint work with H. N. Nguyen, G. Salaün, and F. Zaïdi</strong><br/>
+
             </p>
         </div>
 
@@ -127,12 +129,17 @@
         <ul>
             <li class="" style="line-height: 32px;">three participants : buyer, vendor, and shipper
             </li><br/>
+            <li style="line-height: 32px;">A <span class="kevOrange">request for goods</span> first takes place (buyer to vendor).</li><br/>
+            <li style="line-height: 32px;">If the goods are available, a <span class="kevOrange">shipping request</span> (vendor to shipper)<br/>and then a <span class="kevOrange">delivery</span> (shipper to buyer) are achieved.</li><br/>
+            <li style="line-height: 32px;">Else, a <span class="kevOrange">cancellation notification</span> is sent (vendor to buyer).</li><br/>
+            <!--
             <li style="line-height: 32px;">the <span class="kevOrange">buyer</span> issues requests about goods<br/>and is notified about cancellation or gets the goods<br />
             </li><br/>
             <li style="line-height: 32px;">the <span class="kevOrange">vendor</span>  checks if the goods are available<br/>and sends cancellation notification or requests shipping<br />
             </li><br/>
             <li style="line-height: 32px;">the <span class="kevOrange">shipper</span>  ships goods upon request<br />
             </li><br/>
+            -->
         </ul>
     </div>
 </section>
@@ -237,7 +244,8 @@ shipper = receive(vendor, ship);
         </div>
         <div style="position:absolute;top:170px;right:40px;">
             <ul>
-                <li class="" style="line-height: 32px;">e.g., <span class="kevOrange">BPMN collaboration</span> diagram
+                <li class="" style="line-height: 32px;">e.g., <span class="kevOrange">BPMN choreography</span> diagram<br/>
+                    <i class="kevGray"  style="font-size: 20px;">since BPMN 2.0</i>
                 </li>
             </ul>
         </div>
@@ -251,48 +259,82 @@ shipper = receive(vendor, ship);
     <div>
         <h2><span class="kevOrange kevIcon ion-bag"></span> The Shop-n-Deliver Collaboration</h2>
         <ul>
+            <li style="line-height: 32px;">global view: interactions matter, good for <span class="kevOrange">specification</span><br/><br/>
+                <span style="font-size: 18px;">A request for goods first takes place (buyer to vendor).<br/>
+                If the goods are available, a shipping request (vendor to shipper) and then a delivery (shipper to buyer) are achieved.
+                Else, a cancellation notification is sent (vendor to buyer).</span>
+            </li><br/>
             <li style="line-height: 32px;">local view: peers matter, good for <span class="kevOrange">implementation</span><br/><br/>
                 <span style="font-size: 18px;">The buyer issues requests about goods and is notified about cancellation or gets the goods.<br/>
                 The vendor checks if the goods are available and sends cancellation notification or requests shipping.
                 The shipper  ships goods upon request.</span>
             </li><br/>
-            <li style="line-height: 32px;">global view: interactions matter, good for <span class="kevOrange">specification</span><br/><br/>
-                <span style="font-size: 18px;">A request for goods first takes place (buyer to vendor).<br/>
-                If the goods are available, a shipping request (vendor to shipper) and then a delivery (shipper to buyer) are achieved.
-                Else, a cancellation notification is sent (vendor to buyer).</span>
-            </li>
         </ul>
     </div>
 </section>
-
-<!--
-
-<section class="slide">
-    <div>
-        <h2><span class="kevOrange kevIcon ion-compose"></span>Online Shopping as a Collaboration</h2>
-        <div style="opacity:0.7;background-color:navajowhite;position:absolute;bottom:60px;left:60px;width:920px;border-radius:10px 10px 10px 10px;height:360px;">
-            <img src="figures/shopping_v1.png" style="opacity:1; width:900px;padding-top:10px;padding-left:10px;"/>
-        </div>
-    </div>
-</section>
-
-<section class="slide">
-    <div>
-        <h2><span class="kevOrange kevIcon ion-compose"></span>Online Shopping as a Choreography</h2>
-        <div style="opacity:0.7;background-color:navajowhite;position:absolute;bottom:60px;left:60px;width:920px;border-radius:10px 10px 10px 10px;height:360px;">
-            <img src="figures/shopping_v1.png" style="opacity:1; width:900px;padding-top:10px;padding-left:10px;"/>
-        </div>
-    </div>
-</section>
-
--->
 
 <section class="slide shout">
     <h2><span class="kevOrange kevIcon">></span>Choreography Development</h2>
 </section>
 
-<section class="slide shout">
-    <h2><span class="kevOrange kevIcon">></span>Choreography Issues</h2>
+<section class="slide">
+    <div>
+        <h2><span class="kevOrange kevIcon ion-wrench"></span> Properties: Synchronizability</h2>
+        <ul>
+            <li style="line-height: 32px;"><span class="kevOrange">synchronizable?(P1, ..., Pn)</span> iff synch(P1, ..., Pn) &equiv; asynch(P1, ..., Pn)<br/>
+                <i style="font-size: 20px;" class="kevGray">where synch is the synchronous product and asynch is the asynchronous product (buffers)</i>
+
+            <span class="kevOrange">synchronizable?(P1, ..., Pn)</span> iff synch(P1, ..., Pn) &equiv; asynch-1(P1, ..., Pn)<br/>
+                <i style="font-size: 20px;" class="kevGray">[Basu et al, POPL'12], where asynch-1 is the 1-bounded asynchronous product</i>
+            </li><br/>
+            <li style="line-height: 32px;"><span class="kevOrange">synchronizable?(C)</span> iff synchronizable?(C&downarrow;1, ..., C&downarrow;n)<br/>
+            </li><br/>
+        </ul>
+        <div style="position:absolute;bottom:5px;right:30px;">
+            <img src="figures/synchronizability.png" style="opacity:1; width:980px;padding-top:10px;padding-left:10px;"/>
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2><span class="kevOrange kevIcon ion-wrench"></span> Properties: Realizability</h2>
+        <ul>
+            <li style="line-height: 32px;"> <span class="kevOrange">synchronizable?(P1, ..., Pn)</span> iff synch(P1, ..., Pn) &equiv; asynch(P1, ..., Pn)<br/>
+                <i style="font-size: 20px;" class="kevGray">where synch is the synchronous product and asynch is the asynchronous product (buffers)</i>
+            </li><br/>
+            <li style="line-height: 32px;"> <span class="kevOrange">synchronizable?(P1, ..., Pn)</span> iff synch(P1, ..., Pn) &equiv; asynch-1(P1, ..., Pn)<br/>
+                <i style="font-size: 20px;" class="kevGray">[Basu et al, POPL'12], where asynch-1 is the 1-bounded asynchronous product</i>
+            </li><br/>
+            <li style="line-height: 32px;"> <span class="kevOrange">synchronizable?(C)</span> iff synchronizable?(C&downarrow;1, ..., C&downarrow;n)<br/>
+            </li><br/>
+        </ul>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2><span class="kevOrange kevIcon ion-wrench"></span> Properties: Repairability</h2>
+        <ul>
+            <li style="line-height: 32px;"> <span class="kevOrange">synchronizable?(P1, ..., Pn)</span> iff synch(P1, ..., Pn) &equiv; asynch(P1, ..., Pn)<br/>
+                <i style="font-size: 20px;" class="kevGray">where synch is the synchronous product and asynch is the asynchronous product (buffers)</i>
+            </li><br/>
+            <li style="line-height: 32px;"> <span class="kevOrange">synchronizable?(P1, ..., Pn)</span> iff synch(P1, ..., Pn) &equiv; asynch-1(P1, ..., Pn)<br/>
+                <i style="font-size: 20px;" class="kevGray">[Basu et al, POPL'12], where asynch-1 is the 1-bounded asynchronous product</i>
+            </li><br/>
+            <li style="line-height: 32px;"> <span class="kevOrange">synchronizable?(C)</span> iff synchronizable?(C&downarrow;1, ..., C&downarrow;n)<br/>
+            </li><br/>
+        </ul>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2><span class="kevOrange kevIcon ion-map"></span> The Global (Formal) Picture</h2>
+        <div style="position:absolute;bottom:0px;right:20px;">
+            <img src="figures/verif_choreo.png" style="opacity:1; width:950px;padding-top:10px;padding-left:10px;"/>
+        </div>
+    </div>
 </section>
 
 <section class="slide shout">
