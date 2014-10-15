@@ -404,6 +404,59 @@ shipper = receive(vendor, ship);
 
 <section class="slide">
     <div>
+        <h2><span class="kevOrange kevIcon ion-bonfire"></span> Choreography Development: Issues</h2>
+        <ul>
+            <li style="line-height: 32px;"><span class="kevOrange">avoiding</span> state space explosion<br/>
+                <i style="font-size: 20px;" class="kevGray">due to data:
+                    abstraction,
+                    bound domains,
+                    or symbolic approaches
+                </i><br/>
+                <i style="font-size: 20px;" class="kevGray">due to asynchronous communication:
+                    none,
+                    bound buffers,
+                    or synchronizability
+                </i>
+            </li><br/>
+            <li style="line-height: 32px;"><span class="kevOrange">checking</span> conformance<br/>
+                <i style="font-size: 20px;" class="kevGray">which equivalence:
+                    trace-based
+                    or branching-based
+                </i><br/>
+                <i style="font-size: 20px;" class="kevGray">which technique:
+                    equivalence checking
+                    or testing
+                </i>
+            </li><br/>
+            <li style="line-height: 32px;"><span class="kevOrange">enforcing</span> conformance<br/>
+                <i style="font-size: 20px;" class="kevGray">using restriction:
+                    at the language level, using dominant roles x[a,b] <span class="kevOrange">+a</span> y[c,d]<br/>
+                    or at the model level, forbidding some models, e.g., x[a,b]; y[c,d]
+                </i><br/>
+                <i style="font-size: 20px;" class="kevGray">using control:
+                    intrusive
+                    or non intrusive
+                </i>
+            </li><br/>
+        </ul>
+    </div>
+</section>
+
+<section class="slide shout">
+    <h2><span class="kevOrange kevIcon">></span>VerChor</h2>
+</section>
+
+<section class="slide">
+    <div>
+        <h2><span class="kevOrange kevIcon ion-arrow-down-c"></span> Choreography Development in VerChor</h2>
+        <div style="position:absolute;bottom:0px;right:20px;">
+            <img src="figures/methodo3.png" style="opacity:1; width:950px;padding-top:10px;padding-left:10px;"/>
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
         <h2><span class="kevOrange kevIcon ion-thermometer"></span> Synchronizability (<span class="kevIcon ion-arrow-down-c"></span><span class="kevIcon ion-arrow-up-c"></span>)</h2>
         <ul>
             <li style="line-height: 32px;"><span class="kevOrange">synchronizable?(P1, ..., Pn)</span> &DoubleLeftRightArrow; synch(P1, ..., Pn) &equiv; asynch(P1, ..., Pn)<br/>
@@ -444,37 +497,13 @@ shipper = receive(vendor, ship);
 
 <section class="slide">
     <div>
-        <h2><span class="kevOrange kevIcon ion-settings"></span> Enforcing Realizability & Conformance</h2>
-        <ul>
-            <li style="line-height: 32px;"> <span class="kevOrange">language constraints</span>  (for <span class="kevOrange kevIcon ion-arrow-down-c"></span> only, but requires over-specification)<br/>
-                <i style="font-size: 20px;" class="kevGray">e.g., dominant roles specify which roles will implement choices such as x[a,b] + y[c,d]</i>
-            </li><br/>
-            <li style="line-height: 32px;"> <span class="kevOrange">well-formedness rules</span> (for <span class="kevOrange kevIcon ion-arrow-down-c"></span> only, but requires over-specification)<br/>
-                <i style="font-size: 20px;" class="kevGray">e.g., forbid x[a,b] ; y[c,d] since c has no way to know that x has been achieved before sending y</i>
-            </li><br/>
-<!-- TODO
-            <li style="line-height: 32px;"> <span class="kevOrange">local enforceability</span><br/>
-            </li>
--->
-            <li style="line-height: 32px;"> <span class="kevOrange">intrusive control</span> (for <span class="kevOrange kevIcon ion-arrow-down-c"></span> only)<br/>
-                <i style="font-size: 20px;" class="kevGray">e.g., smart projection to add interactions in the peers C&downarrow;1, ..., C&downarrow;n</i>
-            </li><br/>
-            <li style="line-height: 32px;"> <span class="kevOrange">non-intrusive control</span> (for <span class="kevOrange kevIcon ion-arrow-up-c"></span> mainly)<br/>
-                <i style="font-size: 20px;" class="kevGray">generate local controllers K1, ..., Kn for the peers C&downarrow;1, ..., C&downarrow;n</i>
-            </li><br/>
-        </ul>
-    </div>
-</section>
-
-<section class="slide shout">
-    <h2><span class="kevOrange kevIcon">></span>VerChor</h2>
-</section>
-
-<section class="slide">
-    <div>
-        <h2><span class="kevOrange kevIcon ion-arrow-down-c"></span> Choreography Development in VerChor</h2>
-        <div style="position:absolute;bottom:0px;right:20px;">
-            <img src="figures/methodo2.png" style="opacity:1; width:950px;padding-top:10px;padding-left:10px;"/>
+        <h2><span class="kevOrange kevIcon ion-speedometer"></span> From Formal Framework to Formal IDE</h2>
+        <div style="position:absolute;bottom:30px;right:100px;">
+            <img src="figures/overview.png" style="opacity:1; width:750px;padding-top:10px;padding-left:10px;"/>
+        </div>
+        <div style="position:absolute;bottom:0px;right:20px;font-size:18px;">
+            VerChor (Python) is available at <a href="http://pagesperso-systeme.lip6.fr/Pascal.Poizat/VerChor/">VerChor Framework</a>.
+            VerChor (Java) is ongoing work on <a href="https://github.com/pascalpoizat/verchor">GitHub</a>
         </div>
     </div>
 </section>
@@ -496,6 +525,468 @@ shipper = receive(vendor, ship);
     </div>
 </section>
 -->
+
+<section class="slide">
+    <div>
+        <h2><span class="kevOrange kevIcon ion-document-text"></span> The ChorD Language</h2>
+        <ul>
+            <li style="line-height: 32px;">Based on [Qiu et al, WWW'07], <span class="kevOrange">extended with support for data</span>
+            </li><br/>
+        </ul>
+        <div style="position:absolute;width:320px; top:240px;font-size: 20px;">
+                <table>
+                    <tr>
+                        <th scope="col">L</th>
+                        <th>semantics</th>
+                    </tr>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>skip</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">&alpha;</th>
+                        <td>interaction</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">L1; L2</th>
+                        <td>sequence</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">L1 + L2</th>
+                        <td>choice</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">L1 | L2</th>
+                        <td>parallelism</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">L1 [> L2</th>
+                        <td>interruption</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">[&phi;] &triangleright; L</th>
+                        <td>if-then</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">[&phi;] * L</th>
+                        <td>while</td>
+                    </tr>
+                </table>
+        </div>
+        <div style="background: white; position:absolute;width:500px; right:10px; top:240px;font-size: 20px;">
+                <table>
+                    <tr>
+                        <th scope="col">&alpha;</th>
+                        <th>choreography language semantics</th>
+                    </tr>
+                    <tr>
+                        <th scope="row">o[a,b]<span class="kevWhite">.x</span></th>
+                        <td>interaction o from a to b <span class="kevOrange">&leftarrow; no data?</span></td>
+                    </tr>
+                </table>
+        </div>
+        <div class="next" style="background: white; position:absolute;width:500px; right:10px; top:240px;font-size: 20px;">
+                <table>
+                    <tr>
+                        <th scope="col">&alpha;</th>
+                        <th>choreography language semantics</th>
+                    </tr>
+                    <tr>
+                        <th scope="row">o[a,b]<span class="kevOrange">.x</span></th>
+                        <td>interaction o from a to b <span class="kevOrange">&leftarrow; binds x?</span></td>
+                    </tr>
+                </table>
+        </div>
+        <div class="next">
+        <div style="background: white; position:absolute;width:500px; right:10px; top:240px;font-size: 20px;">
+                <table>
+                    <tr>
+                        <th scope="col">&alpha;</th>
+                        <th>choreography language semantics</th>
+                    </tr>
+                    <tr>
+                        <th scope="row">o[a,b]<span class="kevOrange">.x</span></th>
+                        <td>interaction o from a to b, x is <span class="kevOrange">not bound</span></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">o[a,b]<span class="kevOrange">.&lt;x&gt;</span></th>
+                        <td>interaction o from a to b, x is <span class="kevOrange">bound</span></td>
+                    </tr>
+                </table>
+        </div>
+        <div style="background: white; position:absolute;width:500px; right:10px; top:380px;font-size: 20px;">
+            <span class="kevOrange">no need for &tau;s</span> since we have choice.
+        </div>
+        <div style="background: white; position:absolute;width:500px; right:10px; top:440px;font-size: 20px;">
+        <ul>
+            <li style="line-height: 32px;">shopping = request[buyer,vendor].&lt;x&gt;;<br/>
+                [x&leq;0] * (error[vendor,buyer]; request[buyer,vendor].&lt;x&gt;);<br/>
+                confirm[vendor,buyer].x
+            </li><br/>
+        </ul>
+        </div>
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2><span class="kevOrange kevIcon ion-document-text"></span> The ChorD Language</h2>
+        <ul>
+            <li style="line-height: 32px;">Based on [Qiu et al, WWW'07], <span class="kevOrange">extended with support for data</span>
+            </li><br/>
+        </ul>
+        <div style="position:absolute;width:320px; top:240px;font-size: 20px;">
+                <table>
+                    <tr>
+                        <th scope="col">L</th>
+                        <th>semantics</th>
+                    </tr>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>skip</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">&alpha;</th>
+                        <td>interaction</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">L1; L2</th>
+                        <td>sequence</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">L1 + L2</th>
+                        <td>choice</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">L1 | L2</th>
+                        <td>parallelism</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">L1 [> L2</th>
+                        <td>interruption</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">[&phi;] &triangleright; L</th>
+                        <td>selection</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">[&phi;] * L</th>
+                        <td>loop</td>
+                    </tr>
+                </table>
+        </div>
+        <div style="position:absolute;width:500px; right:10px; top:240px;font-size: 20px;">
+                <table>
+                    <tr>
+                        <th scope="col">&alpha;</th>
+                        <th>role language semantics</th>
+                    </tr>
+                    <tr>
+                        <th scope="row">o[a,b]?x</th>
+                        <td>reception o in a from b, x is not bound</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">o[a,b]?&lt;x&gt;</th>
+                        <td>reception of o in a from b, x is bound</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">o[a,b]!x</th>
+                        <td>emission of o in a to b, x is not bound</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">o[a,b]!&lt;x&gt;</th>
+                        <td>emission of o in a to b, x is bound</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">&tau;</th>
+                        <td>internal action</td>
+                    </tr>
+                </table>
+        </div>
+        <div class="next">
+            <!-- <div style="background: white; position:absolute;width:500px; right:10px; top:440px;font-size: 20px;">
+                <span class="kevOrange">no o[a,b]!&lt;x&gt;</span> (inconsistent).
+            </div>  -->
+            <div style="background: white; position:absolute;width:500px; right:10px; top:500px;font-size: 20px;">
+                <ul>
+                    <li style="line-height: 32px;font-size:20px;">vendor = request[buyer,vendor]?&lt;x&gt;;<br/>
+                        [x&leq;0] * (error[vendor,buyer]!; request[buyer,vendor]?&lt;x&gt;);<br/>
+                        confirm[vendor,buyer]!x
+                    </li><br/>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2><span class="kevOrange kevIcon ion-help-buoy"></span> Symbolic Transition Graphs (STG)</h2>
+        <ul>
+            <li style="line-height: 32px;">Labelled Transition Systems <span class="kevOrange">extended with support for data</span><br>
+             <i style="font-size: 20px;" class="kevGray">[Hennessy and Lin, TCS:138(2), 1995]
+                 with renamings/extensions (STGA, STS, IOLTS, ...) by others<br/>
+                 used for symbolic verification, e.g., WS-BPEL testing in [Bentakouk et al, TESTCOM'07]
+             </i>
+            </li><br/>
+            <li style="line-height: 32px;">13 <span class="kevOrange">transformation rules</span> from ChorD to STG<br>
+            </li>
+        </ul>
+        <div style="background: white; position:absolute;width:500px; left:20px; bottom:20px;font-size: 20px;">
+            <p>
+                request[buyer,vendor].&lt;x&gt;;<br/>
+                    [x&leq;0] * (error[vendor,buyer]; request[buyer,vendor].&lt;x&gt;);<br/>
+                    confirm[vendor,buyer].x
+            </p>
+        </div>
+        <div style="position:absolute;bottom:20px;right:20px;">
+            <img src="figures/ex1.png" style="opacity:1; width:500px;padding-top:10px;padding-left:10px;"/>
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2><span class="kevOrange kevIcon ion-arrow-up-c"></span> Choreography Development in SChorA</h2>
+        <div style="position:absolute;bottom:0px;right:20px;">
+            <img src="figures/schora_bottomup.png" style="opacity:1; width:950px;padding-top:10px;padding-left:10px;"/>
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2><span class="kevOrange kevIcon ion-thermometer"></span> Conformance and Data</h2>
+        <ul>
+            <li style="line-height: 32px;width:900px;">Conformance is a relation <span class="kevOrange">between a specification and an implementation</span><br/>
+            </li><br/>
+        </ul>
+        <div style="position:absolute;width:850px; top:220px;font-size: 16px;">
+            <table>
+                <tr>
+                    <th scope="col">approach</th>
+                    <th>data</th>
+                    <th>| support using</th>
+                    <th>loops</th>
+                    <th>assignments</th>
+                    <th>equivalence</th>
+                    <th align="center"></th>
+                </tr>
+<!--
+                <tr>
+                    <td scope="row">[Qiu et al, WWW'07]</td>
+                    <td rowspan="3" align="center">no</td>
+                    <td></td>
+                    <td>yes</td>
+                    <td>no</td>
+                    <td>trace equivalence</td>
+                    <td>I = S</td>
+                </tr>
+                <tr>
+                    <td scope="row">[Basu et Bultan, WWW'11]</td>
+                    <td></td>
+                    <td>yes</td>
+                    <td>no</td>
+                    <td>weak bisimulation</td>
+                    <td>I &SubsetEqual; S</td>
+                </tr>
+                <tr>
+                    <td scope="row">[Salaün et al, IEEE TSC:5(3), 2012]</td>
+                    <td></td>
+                    <td>yes</td>
+                    <td>no</td>
+                    <td>strong bisimulation</td>
+                    <td>I = S</td>
+                </tr>
+-->
+                <tr>
+                    <td scope="row">[Busi et al, Coordination'06]</td>
+                    <td rowspan="3" align="center">yes</td>
+                    <td>closure</td>
+                    <td>no</td>
+                    <td>yes</td>
+                    <td>branching bisimulation</td>
+                    <td>I &SupersetEqual; S</td>
+                </tr>
+                <tr>
+                    <td scope="row">[Li et al, TASE'07]</td>
+                    <td>closure</td>
+                    <td>yes</td>
+                    <td>yes</td>
+                    <td>weak bisimulation</td>
+                    <td>I &SupersetEqual; S</td>
+                </tr>
+                <tr>
+                    <td scope="row">[Kazhamiakin et Pistore, WS-FM'06]</td>
+                    <td>bound domains</td>
+                    <td>yes</td>
+                    <td>no</td>
+                    <td>branching bisimulation</td>
+                    <td>I &SupersetEqual; S</td>
+                </tr>
+            </table>
+        </div>
+      <div class="next">
+            <div style="background: white; position:absolute;top:350px;font-size: 24px;">
+                <ul>
+                    <li style="line-height: 32px;">possibility to have internal actions in peers / implementations<br/>
+                        data support without unfolding into LTS (yields state space explosion)<br/>
+                        <span class="kevIcon ion-arrow-right-c"></span> <span class="kevOrange">symbolic branching bisimulation</span>
+                    </li>
+                    <li style="line-height: 32px;">conformance is not always just true or false<br/>
+                        <span class="kevIcon ion-arrow-right-c"></span> <span class="kevOrange">most general constraint</span> for conformance<br/>
+                        <i class="kevGray" style="font-size:20px;">if x &ge; 0 then we have conformance between the models for <br/>I = [x&ge;0] &triangleright; confirm[a,b].x + [x&lt;0] &triangleright; cancel[a,b].x<br/>S = confirm[a,b].x</i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2><span class="kevOrange kevIcon ion-thermometer"></span> Conformance Verification</h2>
+        <ol>
+            <li style="line-height: 32px;width:900px;">hide (&tau;) <span class="kevOrange">additional interactions</span> in the implementation<br/>
+                <i style="font-size: 20px;" class="kevGray">these interactions may have been added by the developper to reach conformance<br/>
+                    they may also result from peers interacting with partners outside the scope of the choreography
+                </i>
+            </li>
+            <li style="line-height: 32px;width:900px;">compute the <span class="kevOrange">most general constraint</span> &rho; over data exchanged between peers to achieve conformance<br/>
+                <i style="font-size: 20px;" class="kevGray">modification of [Li and Chen, TACAS'99], from symbolic weak bisimulation to symbolic branching bisimulation<br/>
+                    &rho; is obtained as a Predicate Equation System (PES)
+                </i>
+            </li>
+            <li style="line-height: 32px;width:900px;">verify &rho; using <span class="kevOrange">the Z3 SMT solver</span><br/>
+                <i style="font-size: 20px;" class="kevGray">transformation from PES to the Z3 input language
+                </i>
+            </li>
+            <li style="line-height: 32px;width:900px;">reach <span class="kevOrange">verdict</span> (true / false / maybe / inconclusive)<br/>
+                <i style="font-size: 20px;" class="kevGray">if [&rho;=false] yields unsat then &rho; is always true and we have conformance<br/>
+                    else verdict based on [&rho;=true]: unsat &rightarrow; false, sat &rightarrow; maybe, and timeout &rightarrow; inconclusive
+                </i>
+            </li>
+        </ol>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2><span class="kevOrange kevIcon ion-arrow-down-c"></span> Choreography Development in SChorA</h2>
+        <div style="position:absolute;bottom:0px;right:20px;">
+            <img src="figures/schora_topdown.png" style="opacity:1; width:950px;padding-top:10px;padding-left:10px;"/>
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2><span class="kevOrange kevIcon ion-thermometer"></span> Realizability and Data</h2>
+        <ul>
+            <li style="line-height: 32px;width:900px;">A choreography is realizable if we can <span class="kevOrange">generate conform peers using projection</span>
+            </li><br/>
+        </ul>
+        <div style="position:absolute;width:850px; top:220px;font-size: 16px;">
+            <table>
+                <tr>
+                    <th scope="col">approach</th>
+                    <th>synchr. communication</th>
+                    <th>asynchr. communication</th>
+                    <th>#causality semantics</th>
+                    <th>branching by data</th>
+                </tr>
+                <tr>
+                    <td scope="row">[Sun et al, APSEC'10]</td>
+                    <td>yes</td>
+                    <td>no</td>
+                    <td>1</td>
+                    <td>no</td>
+                </tr>
+                <tr>
+            </table>
+        </div>
+        <div class="next">
+            <div style="background: white; position:absolute;top:300px;font-size: 24px;">
+                <ul>
+                    <li style="line-height: 32px;">possibility to support the <span class="kevOrange">4 different causality semantics</span> for m[a,b]; n[c,d]<br/>
+                        <i class="kevGray" style="font-size: 20px;"> [Lanese et al, SEFM'08]<br/>synchronous: m[a,b]! &Precedes; n[c,d]! + synchronicity of sending/reception<br/>
+                            asynchronous: sending / m[a,b]! &Precedes; n[c,d]!, reception / m[a,b]? &Precedes; n[c,d]?, disjoint / m[a,b]? &Precedes; n[c,d]!<br/>
+                        </i>
+                    </li>
+                    <li style="line-height: 32px;">benefit from <span class="kevOrange">branching by data</span> (less interactions added)<br/>
+                        <i class="kevGray" style="font-size: 20px;">o1[a,c].&lt;x&gt;; ([x&gt;0] |> o2[a,b] + [x&lt;0] |> o3[c,d])
+                        </i>
+                    </li>
+                    <li style="line-height: 32px;">realizability achieved using a <span class="kevOrange">smart projection</span><br/>
+                        <i class="kevGray" style="font-size: 20px;">intrusive control well-suited for <span class="kevIcon kevOrange ion-arrow-down-c"></span>
+                        </i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2><span class="kevOrange kevIcon ion-settings"></span> Smart Projection</h2>
+        <ol>
+            <li style="line-height: 32px;width:900px;"><span class="kevOrange">prune</span> unreachable transitions and states<br/>
+                <i style="font-size: 20px;" class="kevGray">these are parts of the choreography that are not consistent
+                </i>
+            </li>
+            <li style="line-height: 32px;width:900px;"><span class="kevOrange">connect</span> consecutive interactions with different sender/receiver<br/>
+                <i style="font-size: 20px;" class="kevGray">[Lanese et al, SEFM'08] e.g., o1[a,b].&lt;x&gt;; o2[c,d].&lt;y&gt; &rightarrow; o1[a,b].&lt;x&gt;; X[a,c]; o2[c,d].&lt;y&gt; (send-asynch.)
+                </i>
+            </li>
+            <li style="line-height: 32px;width:900px;"><span class="kevOrange">synchronize</span> choice branches<br/>
+                <i style="font-size: 20px;" class="kevGray">[Qiu et al, WWW'07] role-based, o1[a,b] + o2[a,c] + o3[d,e] &rightarrow; o1[a,b] + o2[a,c] + X[a,d]; o3[d,e] (send-asynch.)
+                </i>
+                <i style="font-size: 20px;" class="kevGray">nothing to do if data-based, o1[a,c].&lt;x&gt;; ([x&gt;0] |> o2[a,b] + [x&lt;0] |> o3[c,d])
+                </i>
+            </li>
+            <li style="line-height: 32px;width:900px;"><span class="kevOrange">exchange</span> information relative to data constraints between peers<br/>
+                <i style="font-size: 20px;" class="kevGray">o1[a,b].&lt;x&gt;; o2[c,d].x &rightarrow; o1[a,b].&lt;x&gt;; X[b,c].x; o2[c,d].x
+                </i>
+            </li>
+        </ol>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2><span class="kevOrange kevIcon ion-speedometer"></span> Tool Support</h2>
+        <div style="position:absolute;bottom:0px;right:20px;">
+            <img src="code/ex1_conformance.png" style="opacity:1; width:950px;padding-top:10px;padding-left:10px;"/>
+        </div>
+        <div style="position:absolute;bottom:0px;right:20px;font-size:18px;">
+         SchorA is available at <a href="https://github.com/nhnghia/schora">GitHub</a>
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+<div>
+    <h2><span class="kevOrange kevIcon ion-speakerphone"></span> Conclusion</h2>
+    <ul>
+        <li style="line-height: 32px;"><span class="kevOrange">choreographies</span> are central in distributed system development<br/>
+            <i class="kevGray" style="font-size: 24px;">well-suited for global specifications with interaction as a 1st class citizen</i><br/>
+            <i class="kevGray" style="font-size: 24px;">support reasoning and rapid development through generative approaches</i>
+        </li><br/>
+        <li style="line-height: 32px;"><span class="kevOrange">formal methods</span> integrate well in choreography-based development<br/>
+            <i class="kevGray" style="font-size: 24px;">formal grounding (nice) - synchronizability, realizability, conformance, control</i><br/>
+            <i class="kevGray" style="font-size: 24px;">tool development (nice too!)</i>
+            <i class="kevGray" style="font-size: 24px;">2 open-source examples, VerChor and SChorA</i>
+        </li><br/>
+        <li style="line-height: 32px;"><span class="kevOrange">going further?</span><br/>
+            <i class="kevGray" style="font-size: 24px;">study new developments on classes of choreographies (stability)</i><br/>
+            <i class="kevGray" style="font-size: 24px;">choreographies and dynamic system evolution</i><br/>
+            <i class="kevGray" style="font-size: 24px;">application to BPM &rightarrow; application to the IoT</i>
+        </li><br/>
+    </ul>
+</div>
+</section>
 
 <!-- NE PAS TOUCHER LA SUITE -->
 
