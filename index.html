@@ -123,14 +123,14 @@
     <div>
         <h2><span class="kevOrange kevIcon ion-speakerphone"></span> A Short Comment on (Formal) Models</h2>
         <ul>
-            <li style="line-height: 32px;"><span class="kevOrange">Transition Systems</span> (LTS, STG) are used in this talk as formal models<br/>
+            <li style="line-height: 32px;">In this talk, formal models are <span class="kevOrange">Transition Systems</span> (LTS, STG)<br/>
                 <i class="kevGray" style="font-size: 24px;">in these models, ! stands for emission and ? stands for reception</i>
             </li><br/>
-            <li style="line-height: 32px;">Transition Systems are the <span class="kevOrange">semantics</span> of different formal languages,<br/>
-                <i class="kevGray" style="font-size: 24px;">e.g., Process Algebras (LNT, Chor)</i><br/>
-                Transition Systems may also result from <span class="kevOrange">model transformations</span><br/>
+            <li style="line-height: 32px;">why? mainly because they have a <span class="kevOrange">good tool support</span><br/>
+                <i class="kevGray" style="font-size: 24px;">e.g., model-checkers and equivalence-checkers in CADP</i><br/>
+                but also because they support numerous <span class="kevOrange">model transformations</span><br/>
                 <i class="kevGray" style="font-size: 24px;">e.g., from Business Process languages and notations (WS-BPEL, BPMN)</i>
-            </li><br/>
+            </li>
         </ul>
         <div style="position:absolute;bottom:5px;right:30px;">
             <img src="figures/models.png" style="opacity:1; width:980px;padding-top:10px;padding-left:10px;"/>
@@ -342,35 +342,6 @@ shipper = receive(vendor, ship);
     <h2><span class="kevOrange kevIcon">></span>Choreography Development</h2>
 </section>
 
-<!--
-<section class="slide">
-    <div>
-        <h2><span class="kevOrange kevIcon ion-arrow-down-c"></span> Top-Down vs <span class="kevOrange kevIcon ion-arrow-up-c"></span> Bottom-Up Development</h2>
-        <ul>
-            <li style="line-height: 32px;"><span class="kevOrange">Top-down</span> development (generative programming)<br/>
-                <i class="kevGray" style="font-size: 20px;">1. interaction skeletons are <span class="kevOrange kevIcon ion-gear-b"></span> generated from the choreography<br/>
-                2. these skeletons are <span class="kevOrange kevIcon ion-person"></span> implemented</i>
-            </li>
-            <li style="line-height: 32px;width: 820px;" class="next"><span class="kevOrange">Bottom-up</span> development (verified reuse)<br/>
-                <i class="kevGray" style="font-size: 20px;">1. peers (<span class="kevOrange kevIcon ion-person"></span> reused at design time or <span class="kevOrange kevIcon ion-gear-b"></span> bound at runtime) come with contracts<br/>
-                2. contracts are used to <span class="kevOrange kevIcon ion-gear-b"></span> check if the collaboration conforms to the choreography<br/>
-                <ul>
-                    <li>this can be done locally (peer&leftrightarrow;role) or globally (peers&leftrightarrow;choreography)</li>
-                    <li>this can be done at design time (active testing, model-checking)<br/>or at runtime (passive testing)</li>
-                </ul>
-                </i>
-            </li>
-            <li style="line-height: 32px;width: 820px;" class="next">Both development processes ground on formal <span class="kevOrange">properties</span> and <span class="kevOrange">techniques</span><br/>
-                <i class="kevGray" style="font-size: 20px;"><ul>
-                    <li><span class="kevOrange kevIcon ion-thermometer"></span> synchronizability, realizability, conformance</li>
-                    <li><span class="kevOrange kevIcon ion-settings"></span> projection, synchronous and asynchronous products, equivalence checking</li>
-                </ul></i>
-            </li><br/>
-        </ul>
-    </div>
-</section>
--->
-
 <section class="slide">
     <div>
         <h2><span class="kevOrange kevIcon ion-arrow-down-c"></span> Top-Down Development</h2>
@@ -402,21 +373,22 @@ shipper = receive(vendor, ship);
     </div>
 </section>
 
+<!--
 <section class="slide">
     <div>
         <h2><span class="kevOrange kevIcon ion-bonfire"></span> Choreography Development: Issues</h2>
         <ul>
             <li style="line-height: 32px;"><span class="kevOrange">avoiding</span> state space explosion<br/>
-                <i style="font-size: 20px;" class="kevGray">due to data:
-                    abstraction,
-                    bound domains,
-                    or symbolic approaches
-                </i><br/>
                 <i style="font-size: 20px;" class="kevGray">due to asynchronous communication:
                     none,
                     bound buffers,
                     or synchronizability
                 </i>
+                <i style="font-size: 20px;" class="kevGray">due to data:
+                    abstraction,
+                    bound domains,
+                    or symbolic approaches
+                </i><br/>
             </li><br/>
             <li style="line-height: 32px;"><span class="kevOrange">checking</span> conformance<br/>
                 <i style="font-size: 20px;" class="kevGray">which equivalence:
@@ -441,23 +413,22 @@ shipper = receive(vendor, ship);
         </ul>
     </div>
 </section>
+-->
 
 <section class="slide shout">
     <h2><span class="kevOrange kevIcon">></span>VerChor</h2>
-</section>
-
-<section class="slide">
-    <div>
-        <h2><span class="kevOrange kevIcon ion-arrow-down-c"></span> Choreography Development in VerChor</h2>
-        <div style="position:absolute;bottom:0px;right:20px;">
-            <img src="figures/methodo3.png" style="opacity:1; width:950px;padding-top:10px;padding-left:10px;"/>
-        </div>
+    <div style="position:absolute; top: 450px; left: 550px;">
+        <span class="kevGray">[Poizat and Salaün, SAC'12]</span><br/>
     </div>
 </section>
 
 <section class="slide">
     <div>
         <h2><span class="kevOrange kevIcon ion-thermometer"></span> Synchronizability (<span class="kevIcon ion-arrow-down-c"></span><span class="kevIcon ion-arrow-up-c"></span>)</h2>
+        <div style="position:absolute; top: 150px; width: 900px;">
+        <span class="kevOrange">objective:</span> avoid state-space explosion due to asynchronous communication<br/>
+        </div>
+        <div class="next">
         <ul>
             <li style="line-height: 32px;"><span class="kevOrange">synchronizable?(P1, ..., Pn)</span> &DoubleLeftRightArrow; synch(P1, ..., Pn) &equiv; asynch(P1, ..., Pn)<br/>
                 <i style="font-size: 20px;" class="kevGray">where synch is the synchronous product and asynch is the asynchronous product (buffers)</i><br/>
@@ -472,12 +443,17 @@ shipper = receive(vendor, ship);
         <div style="position:absolute;bottom:5px;right:30px;">
             <img src="figures/synchronizability.png" style="opacity:1; width:980px;padding-top:10px;padding-left:10px;"/>
         </div>
+        </div>
     </div>
 </section>
 
 <section class="slide">
     <div>
         <h2><span class="kevOrange kevIcon ion-thermometer"></span> Realizability (<span class="kevIcon ion-arrow-down-c"></span>) & Conformance (<span class="kevIcon ion-arrow-up-c"></span>)</h2>
+        <div style="position:absolute; top: 150px; width: 900px;">
+            <span class="kevOrange">objective:</span> check if peers can be implemented by (natural) projection / be reused<br/>
+        </div>
+        <div class="next">
         <ul>
             <li style="line-height: 32px;"> <span class="kevOrange">realizable?(C)</span> &DoubleLeftRightArrow; C &equiv; &Pi;(C&downarrow;1, ..., C&downarrow;n)<br/>
                 <i style="font-size: 20px;" class="kevGray">where &Pi; is an operation that yields the semantics of the peers collaboration</i><br/>
@@ -492,8 +468,19 @@ shipper = receive(vendor, ship);
         <div style="position:absolute;bottom:5px;right:30px;">
             <img src="figures/realizability.png" style="opacity:1; width:980px;padding-top:10px;padding-left:10px;"/>
         </div>
+        </div>
     </div>
 </section>
+
+<section class="slide">
+    <div>
+        <h2><span class="kevOrange kevIcon ion-arrow-down-c"></span> Choreography Development in VerChor</h2>
+        <div style="position:absolute;bottom:0px;right:20px;">
+            <img src="figures/methodo3.png" style="opacity:1; width:950px;padding-top:10px;padding-left:10px;"/>
+        </div>
+    </div>
+</section>
+
 
 <section class="slide">
     <div>
@@ -508,6 +495,139 @@ shipper = receive(vendor, ship);
     </div>
 </section>
 
+<section class="slide">
+    <div>
+        <h2><span class="kevOrange kevIcon ion-merge"></span> Choreography Intermediate Format (CIF)</h2>
+            <ul>
+                <li style="line-height: 32px;"> <span class="kevOrange">pivot model</span> for choreography-related model transformation<br/>
+                    <i style="font-size: 20px;" class="kevGray">front-ends: BPMN Choreography Diagrams, Conversation Protocols, (ongoing: ChorD)</i><br/>
+                    <i style="font-size: 20px;" class="kevGray">back-ends: LNT, (ongoing: STG, Petri Nets)</i>
+                </li><br/>
+                <li style="line-height: 32px;"> <span class="kevOrange">workflow constructs</span><br/>
+                    <i style="font-size: 20px;" class="kevGray">inspired but simplified wrt. BPMN</i><br/>
+                    <i style="font-size: 20px;" class="kevGray">state-machine encoding</i>
+                </li><br/>
+                <li style="line-height: 32px;"> <span class="kevOrange">BPMN &rightarrow; CIF</span> model transformation<br/>
+                    <i style="font-size: 20px;" class="kevGray">plain old Java over EMF meta-models</i><br/>
+                    <i style="font-size: 20px;" class="kevGray">part of the framework for Formal Model Transformations</i>
+                </li><br/>
+            </ul>
+            <div style="position:absolute;bottom:5px;right:30px;">
+                <img src="figures/dc_uml.png" style="opacity:1; width:550px;padding-top:10px;padding-left:10px;"/>
+            </div>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2><span class="kevOrange kevIcon ion-settings"></span> CIF &rightarrow; LNT</h2>
+            <ul>
+                <li style="line-height: 32px;"> <span class="kevOrange">state machine encoding</span><br/>
+                    <i style="font-size: 20px;" class="kevGray">LNT (LOTOS NT) process algebra</i><br/>
+                    <i style="font-size: 20px;" class="kevGray">use of patterns for CIF constructs</i><br/>
+                    <i style="font-size: 20px;" class="kevGray">complex for inclusive gateways</i><br/>
+                </li><br/>
+            </ul>
+       <span style="font-size: 12pt; position:absolute;bottom:470px;left:500px;">
+        <script type="syntaxhighlighter" class="brush:plain toolbar:false;"><![CDATA[
+process s1[...]
+    s2[...]
+end process
+]]>
+       </script></span>
+       <span style="font-size: 12pt; position:absolute;bottom:370px;left:500px;">
+        <script type="syntaxhighlighter" class="brush:plain toolbar:false;"><![CDATA[
+process s1[...]
+    a_b_msg; s2[...]
+end process
+]]>
+       </script></span>
+       <span style="font-size: 12pt; position:absolute;bottom:270px;left:500px;">
+        <script type="syntaxhighlighter" class="brush:plain toolbar:false;"><![CDATA[
+process s1[...]
+    a_b_msg_REC; s2[...]
+end process
+]]>
+       </script></span>
+       <span style="font-size: 12pt; position:absolute;top:380px;left:30px;">
+        <script type="syntaxhighlighter" class="brush:plain toolbar:false;"><![CDATA[
+select
+    option_A[...]
+[]  option_B[...]
+[]  option_C[...]
+end select
+]]>
+       </script></span>
+       <span style="font-size: 12pt; position:absolute;top:380px;left:250px;">
+        <script type="syntaxhighlighter" class="brush:plain toolbar:false;"><![CDATA[
+par
+    option_A[...]
+||  option_B[...]
+||  option_C[...]
+end par
+]]>
+       </script></span>
+       <span style="font-size: 12pt; position:absolute;top:380px;left:500px;">
+        <script type="syntaxhighlighter" class="brush:plain toolbar:false;"><![CDATA[
+hide sync1, sync2 in
+par
+    sync1, sync2 -> option_A[..., sync1, sync2]
+||  sync1, sync2 -> option_B[..., sync1, sync2]
+||  sync2        -> option_C[..., sync2]
+end par
+]]>
+       </script></span>
+       <span style="font-size: 12pt; position:absolute;bottom:0px;left:250px;">
+        <script type="syntaxhighlighter" class="brush:plain toolbar:false;"><![CDATA[
+select
+    option_A[...]||((option_B[...][] null) || (option_C[...][] null))
+[]  option_B[...]||((option_A[...][] null) || (option_C[...][] null))
+[]  option_C[...]||((option_A[...][] null) || (option_B[...][] null))
+[]  default[...]
+end select
+]]>
+       </script></span>
+    <div style="position:absolute;top:330px;left:100px;">
+        <img src="figures/lntencoding_xor.png" style="opacity:1; width:120px;"/>
+    </div>
+    <div style="position:absolute;top:330px;left:320px;">
+        <img src="figures/lntencoding_and.png" style="opacity:1; width:120px;"/>
+    </div>
+    <div style="position:absolute;top:520px;left:120px;">
+        <img src="figures/lntencoding_or.png" style="opacity:1; width:120px;"/>
+    </div>
+    <div style="position:absolute;top:350px;left:820px;">
+        <img src="figures/lntencoding_jand.png" style="opacity:1; width:140px;"/>
+    </div>
+    <div style="position:absolute;top:100px;left:720px;">
+        <img src="figures/lntencoding_sequence.png" style="opacity:1; width:140px;"/>
+    </div>
+    <div style="position:absolute;top:250px;left:720px;">
+        <img src="figures/lntencoding_interaction.png" style="opacity:1; width:100px;"/>
+    </div>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2><span class="kevOrange kevIcon ion-settings"></span> Verification Scripts (SVL)</h2>
+        <ul>
+            <li style="line-height: 32px;"> <span class="kevOrange">SVL scripts</span> are generated to compute models (LTS)<br/>
+                <i style="font-size: 20px;" class="kevGray">choreography model</i><br/>
+                <i style="font-size: 20px;" class="kevGray">peer models if needed (projection using hiding + reduction)</i><br/>
+                <i style="font-size: 20px;" class="kevGray">buffer models</i><br/>
+                <i style="font-size: 20px;" class="kevGray">composition models (synch and asynch-1)</i><br/>
+            </li><br/>
+            <li style="line-height: 32px;"> <span class="kevOrange">SVL scripts</span> are generated to check for properties<br/>
+                <i style="font-size: 20px;" class="kevGray">synchronizability</i><br/>
+                <i style="font-size: 20px;" class="kevGray">realizability</i><br/>
+            </li><br/>
+            <li style="line-height: 32px;width:900px;"> using these "Makefile" formal verification scripts, <span class="kevOrange">all tasks are automated</span><br/>
+                <i style="font-size: 20px;" class="kevGray">including counter-example extraction in case some property does not yield</i><br/>
+            </li><br/>
+        </ul>
+    </div>
+</section>
 <section class="slide shout">
     <h2><span class="kevOrange kevIcon">></span>SChorA</h2>
 </section>
@@ -668,11 +788,11 @@ shipper = receive(vendor, ship);
                     </tr>
                     <tr>
                         <th scope="row">[&phi;] &triangleright; L</th>
-                        <td>selection</td>
+                        <td>if-then</td>
                     </tr>
                     <tr>
                         <th scope="row">[&phi;] * L</th>
-                        <td>loop</td>
+                        <td>while</td>
                     </tr>
                 </table>
         </div>
@@ -771,7 +891,6 @@ shipper = receive(vendor, ship);
                     <th>loops</th>
                     <th>assignments</th>
                     <th>equivalence</th>
-                    <th align="center"></th>
                 </tr>
 <!--
                 <tr>
@@ -807,7 +926,6 @@ shipper = receive(vendor, ship);
                     <td>no</td>
                     <td>yes</td>
                     <td>branching bisimulation</td>
-                    <td>I &SupersetEqual; S</td>
                 </tr>
                 <tr>
                     <td scope="row">[Li et al, TASE'07]</td>
@@ -815,7 +933,6 @@ shipper = receive(vendor, ship);
                     <td>yes</td>
                     <td>yes</td>
                     <td>weak bisimulation</td>
-                    <td>I &SupersetEqual; S</td>
                 </tr>
                 <tr>
                     <td scope="row">[Kazhamiakin et Pistore, WS-FM'06]</td>
@@ -823,20 +940,20 @@ shipper = receive(vendor, ship);
                     <td>yes</td>
                     <td>no</td>
                     <td>branching bisimulation</td>
-                    <td>I &SupersetEqual; S</td>
-                </tr>
+                    </tr>
             </table>
         </div>
       <div class="next">
             <div style="background: white; position:absolute;top:350px;font-size: 24px;">
                 <ul>
-                    <li style="line-height: 32px;">possibility to have internal actions in peers / implementations<br/>
-                        data support without unfolding into LTS (yields state space explosion)<br/>
+                    <li style="line-height: 32px;">closure does not work for open choreographies, e.g., <span class="kevGray" style="font-size:20px;">o1[a,b].&lt;x&gt;; [x&gt;0] |> o2[b,a].x</span><br/>
+                        bound domains still yield state space explosion if LTS are used<br/>
+                    possibility to have internal actions in peers, hence in implementations<br/>
                         <span class="kevIcon ion-arrow-right-c"></span> <span class="kevOrange">symbolic branching bisimulation</span>
                     </li>
                     <li style="line-height: 32px;">conformance is not always just true or false<br/>
+                        <i class="kevGray" style="font-size:20px;">if x &ge; 0, Impl = ([x&ge;0] &triangleright; confirm[a,b].x + [x&lt;0] &triangleright; cancel[a,b].x) is conform to Spec = confirm[a,b].x</i><br/>
                         <span class="kevIcon ion-arrow-right-c"></span> <span class="kevOrange">most general constraint</span> for conformance<br/>
-                        <i class="kevGray" style="font-size:20px;">if x &ge; 0 then we have conformance between the models for <br/>I = [x&ge;0] &triangleright; confirm[a,b].x + [x&lt;0] &triangleright; cancel[a,b].x<br/>S = confirm[a,b].x</i>
                     </li>
                 </ul>
             </div>
@@ -975,14 +1092,13 @@ shipper = receive(vendor, ship);
             <i class="kevGray" style="font-size: 24px;">support reasoning and rapid development through generative approaches</i>
         </li><br/>
         <li style="line-height: 32px;"><span class="kevOrange">formal methods</span> integrate well in choreography-based development<br/>
-            <i class="kevGray" style="font-size: 24px;">formal grounding (nice) - synchronizability, realizability, conformance, control</i><br/>
-            <i class="kevGray" style="font-size: 24px;">tool development (nice too!)</i>
-            <i class="kevGray" style="font-size: 24px;">2 open-source examples, VerChor and SChorA</i>
+            <i class="kevGray" style="font-size: 24px;">formal grounding - synchronizability, realizability, conformance, control</i><br/>
+            <i class="kevGray" style="font-size: 24px;">tool development - VerChor and SChorA (both     open source)</i>
         </li><br/>
         <li style="line-height: 32px;"><span class="kevOrange">going further?</span><br/>
-            <i class="kevGray" style="font-size: 24px;">study new developments on classes of choreographies (stability)</i><br/>
+            <i class="kevGray" style="font-size: 24px;">study new developments on classes of choreographies</i><br/>
             <i class="kevGray" style="font-size: 24px;">choreographies and dynamic system evolution</i><br/>
-            <i class="kevGray" style="font-size: 24px;">application to BPM &rightarrow; application to the IoT</i>
+            <i class="kevGray" style="font-size: 24px;">application of the symbolic approach (SChorA) to BPM</i>
         </li><br/>
     </ul>
 </div>
