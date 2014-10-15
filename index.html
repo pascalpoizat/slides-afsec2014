@@ -119,6 +119,25 @@
     </div>
 </section>
 
+<section class="slide">
+    <div>
+        <h2><span class="kevOrange kevIcon ion-speakerphone"></span> A Short Comment on (Formal) Models</h2>
+        <ul>
+            <li style="line-height: 32px;"><span class="kevOrange">Transition Systems</span> (LTS, STG) are used in this talk as formal models<br/>
+                <i class="kevGray" style="font-size: 24px;">in these models, ! stands for emission and ? stands for reception</i>
+            </li><br/>
+            <li style="line-height: 32px;">Transition Systems are the <span class="kevOrange">semantics</span> of different formal languages,<br/>
+                <i class="kevGray" style="font-size: 24px;">e.g., Process Algebras (LNT, Chor)</i><br/>
+                Transition Systems may also result from <span class="kevOrange">model transformations</span><br/>
+                <i class="kevGray" style="font-size: 24px;">e.g., from Business Process languages and notations (WS-BPEL, BPMN)</i>
+            </li><br/>
+        </ul>
+        <div style="position:absolute;bottom:5px;right:30px;">
+            <img src="figures/models.png" style="opacity:1; width:980px;padding-top:10px;padding-left:10px;"/>
+        </div>
+    </div>
+</section>
+
 <section class="slide shout">
     <h2><span class="kevOrange kevIcon">></span>Diving into Choreographies</h2>
 </section>
@@ -131,8 +150,8 @@
             </li><br/>
             <li style="line-height: 32px;"><span class="kevGray kevIcon ion-person"></span> <span class="kevOrange kevIcon ion-email"></span> <span class="kevGray kevIcon ion-arrow-right-c"></span> <span class="kevGray kevIcon ion-ios7-home"></span> A <span class="kevOrange">request for goods</span> first takes place.</li><br/>
             <li style="line-height: 32px;"><span class="kevGray kevIcon ion-ios7-home"></span> <span class="kevOrange kevIcon ion-clipboard"></span> <span class="kevGray kevIcon ion-arrow-right-c"></span> <span class="kevGray kevIcon ion-plane"></span> If the goods are available, a <span class="kevOrange">shipping request</span><br/>
-            <span class="kevGray kevIcon ion-person"></span> <span class="kevGray kevIcon ion-arrow-left-c"></span> <span class="kevOrange kevIcon ion-cube"></span> <span class="kevGray kevIcon ion-plane"></span> and then a <span class="kevOrange">delivery</span> are achieved.</li><br/>
-            <li style="line-height: 32px;"><span class="kevGray kevIcon ion-person"></span> <span class="kevGray kevIcon ion-arrow-left-c"></span> <span class="kevOrange kevIcon ion-thumbsdown"></span> <span class="kevGray kevIcon ion-ios7-home"></span> Else, a <span class="kevOrange">cancellation notification</span> is sent (vendor to buyer).</li><br/>
+            <span class="kevGray kevIcon ion-plane"></span> <span class="kevOrange kevIcon ion-cube"></span> <span class="kevGray kevIcon ion-arrow-right-c"></span> <span class="kevGray kevIcon ion-person"></span> and then a <span class="kevOrange">delivery</span> are achieved.</li><br/>
+            <li style="line-height: 32px;"><span class="kevGray kevIcon ion-ios7-home"></span> <span class="kevOrange kevIcon ion-thumbsdown"></span> <span class="kevGray kevIcon ion-arrow-right-c"></span> <span class="kevGray kevIcon ion-person"></span> Else, a <span class="kevOrange">cancellation notification</span> is sent (vendor to buyer).</li><br/>
             <!--
             <li style="line-height: 32px;">the <span class="kevOrange">buyer</span> issues requests about goods<br/>and is notified about cancellation or gets the goods<br />
             </li><br/>
@@ -167,31 +186,52 @@
                 </li>
             </ul>
         </div>
-       <span style="font-size: 12pt; position:absolute;bottom:300px;left:540px;">
+       <span style="font-size: 12pt; position:absolute;bottom:300px;left:520px;">
         <script type="syntaxhighlighter" class="brush:plain toolbar:false;"><![CDATA[
 buyer = invoke(vendor, request);
         pick {
-            onMessage(vendor, abort): ...;
-            onMessage(shipper, deliver): ...;
+          onMessage(vendor, abort):
+          onMessage(shipper, deliver):
         }
 ]]>
        </script></span>
-       <span style="font-size: 12pt; position:absolute;bottom:160px;left:540px;">
+       <span style="font-size: 12pt; position:absolute;bottom:160px;left:520px;">
             <script type="syntaxhighlighter" class="brush:plain toolbar:false;"><![CDATA[
 vendor = receive(buyer, request);
          if (article is not available) {
-            invoke(buyer, abort);
+           invoke(buyer, abort);
          } else {
-            invoke(shipper, ship);
+           invoke(shipper, ship);
          }
 ]]>
        </script></span>
-       <span style="font-size: 12pt; position:absolute;bottom:90px;left:540px;">
+       <span style="font-size: 12pt; position:absolute;bottom:90px;left:520px;">
             <script type="syntaxhighlighter" class="brush:plain toolbar:false;"><![CDATA[
 shipper = receive(vendor, ship);
           invoke(buyer, deliver);
 ]]>
        </script></span>
+       <span style="font-size: 12pt; position:absolute;bottom:380px;right:10px;">
+           <span class="kevGray kevIcon ion-person"></span> <span class="kevOrange kevIcon ion-email"></span> <span class="kevGray kevIcon ion-arrow-right-c"></span> <span class="kevGray kevIcon ion-ios7-home"></span>
+       </span>
+       <span style="font-size: 12pt; position:absolute;bottom:344px;right:10px;">
+           <span class="kevGray kevIcon ion-person"></span> <span class="kevGray kevIcon ion-arrow-left-c"></span> <span class="kevOrange kevIcon ion-thumbsdown"></span> <span class="kevGray kevIcon ion-ios7-home"></span>
+       </span>
+       <span style="font-size: 12pt; position:absolute;bottom:326px;right:10px;">
+           <span class="kevGray kevIcon ion-person"></span> <span class="kevGray kevIcon ion-arrow-left-c"></span> <span class="kevOrange kevIcon ion-cube"></span> <span class="kevGray kevIcon ion-plane"></span>
+       </span>
+       <span style="font-size: 12pt; position:absolute;bottom:220px;right:10px;">
+           <span class="kevGray kevIcon ion-ios7-home"></span> <span class="kevOrange kevIcon ion-thumbsdown"></span> <span class="kevGray kevIcon ion-arrow-right-c"></span> <span class="kevGray kevIcon ion-person"></span>
+       </span>
+       <span style="font-size: 12pt; position:absolute;bottom:188px;right:10px;">
+           <span class="kevGray kevIcon ion-ios7-home"></span> <span class="kevOrange kevIcon ion-clipboard"></span> <span class="kevGray kevIcon ion-arrow-right-c"></span> <span class="kevGray kevIcon ion-plane"></span>
+       </span>
+       <span style="font-size: 12pt; position:absolute;bottom:118px;right:10px;">
+           <span class="kevGray kevIcon ion-plane"></span> <span class="kevGray kevIcon ion-arrow-left-c"></span> <span class="kevOrange kevIcon ion-clipboard"></span> <span class="kevGray kevIcon ion-ios7-home"></span>
+       </span>
+       <span style="font-size: 12pt; position:absolute;bottom:100px;right:10px;">
+           <span class="kevGray kevIcon ion-plane"></span> <span class="kevOrange kevIcon ion-cube"></span> <span class="kevGray kevIcon ion-arrow-right-c"></span> <span class="kevGray kevIcon ion-person"></span>
+       </span>
     </div>
 </section>
 
@@ -222,6 +262,18 @@ shipper = receive(vendor, ship);
         <div style="position:absolute;bottom:15px;right:10px;">
             <img src="figures/snd_1.png" style="opacity:1; width:500px;padding-top:10px;padding-left:10px;"/>
         </div>
+        <span style="font-size: 16pt; position:absolute;bottom:305px;right:380px;background: navajowhite;border-radius:10px 10px 10px 10px;padding-left: 4px;padding-top:0px;padding-right: 4px;padding-bottom: 0px;">
+           <span class="kevGray kevIcon ion-person"></span> <span class="kevOrange kevIcon ion-email"></span> <span class="kevGray kevIcon ion-arrow-right-c"></span> <span class="kevGray kevIcon ion-ios7-home"></span>
+        </span>
+        <span style="font-size: 16pt; position:absolute;bottom:285px;right:220px;background: navajowhite;border-radius:10px 10px 10px 10px;padding-left: 4px;padding-top:0px;padding-right: 4px;padding-bottom: 0px;">
+           <span class="kevGray kevIcon ion-ios7-home"></span> <span class="kevOrange kevIcon ion-thumbsdown"></span> <span class="kevGray kevIcon ion-arrow-right-c"></span> <span class="kevGray kevIcon ion-person"></span>
+        </span>
+        <span style="font-size: 16pt; position:absolute;bottom:265px;right:30px;background: navajowhite;border-radius:10px 10px 10px 10px;padding-left: 4px;padding-top:0px;padding-right: 4px;padding-bottom: 0px;">
+           <span class="kevGray kevIcon ion-plane"></span> <span class="kevOrange kevIcon ion-cube"></span> <span class="kevGray kevIcon ion-arrow-right-c"></span> <span class="kevGray kevIcon ion-person"></span>
+        </span>
+        <span style="font-size: 16pt; position:absolute;bottom:105px;right:355px;background: navajowhite;border-radius:10px 10px 10px 10px;padding-left: 4px;padding-top:0px;padding-right: 4px;padding-bottom: 0px;">
+           <span class="kevGray kevIcon ion-ios7-home"></span> <span class="kevOrange kevIcon ion-clipboard"></span> <span class="kevGray kevIcon ion-arrow-right-c"></span> <span class="kevGray kevIcon ion-plane"></span>
+        </span>
     </div>
 </section>
 
@@ -253,12 +305,24 @@ shipper = receive(vendor, ship);
         <div style="position:absolute;bottom:100px;right:10px;">
             <img src="figures/snd_2.png" style="opacity:1; width:550px;padding-top:10px;padding-left:10px;"/>
         </div>
+        <span style="font-size: 16pt; position:absolute;bottom:171px;right:418px;background: navajowhite;border-radius:10px 10px 10px 10px;padding-left: 4px;padding-top:0px;padding-right: 4px;padding-bottom: 0px;">
+           <span class="kevGray kevIcon ion-person"></span> <span class="kevOrange kevIcon ion-email"></span> <span class="kevGray kevIcon ion-arrow-right-c"></span> <span class="kevGray kevIcon ion-ios7-home"></span>
+        </span>
+        <span style="font-size: 16pt; position:absolute;bottom:268px;right:238px;background: navajowhite;border-radius:10px 10px 10px 10px;padding-left: 4px;padding-top:0px;padding-right: 4px;padding-bottom: 0px;">
+           <span class="kevGray kevIcon ion-ios7-home"></span> <span class="kevOrange kevIcon ion-thumbsdown"></span> <span class="kevGray kevIcon ion-arrow-right-c"></span> <span class="kevGray kevIcon ion-person"></span>
+        </span>
+        <span style="font-size: 16pt; position:absolute;bottom:75px;right:114px;background: navajowhite;border-radius:10px 10px 10px 10px;padding-left: 4px;padding-top:0px;padding-right: 4px;padding-bottom: 0px;">
+           <span class="kevGray kevIcon ion-plane"></span> <span class="kevOrange kevIcon ion-cube"></span> <span class="kevGray kevIcon ion-arrow-right-c"></span> <span class="kevGray kevIcon ion-person"></span>
+        </span>
+        <span style="font-size: 16pt; position:absolute;bottom:75px;right:238px;background: navajowhite;border-radius:10px 10px 10px 10px;padding-left: 4px;padding-top:0px;padding-right: 4px;padding-bottom: 0px;">
+           <span class="kevGray kevIcon ion-ios7-home"></span> <span class="kevOrange kevIcon ion-clipboard"></span> <span class="kevGray kevIcon ion-arrow-right-c"></span> <span class="kevGray kevIcon ion-plane"></span>
+        </span>
     </div>
 </section>
 
 <section class="slide">
     <div>
-        <h2><span class="kevOrange kevIcon ion-bag"></span> The Shop-n-Deliver Conclusion</h2>
+        <h2><span class="kevOrange kevIcon ion-bag"></span> Conclusion (of the Introduction)</h2>
         <ul>
             <li style="line-height: 32px;"><span class="kevOrange kevIcon ion-earth"></span> global view: <span class="kevOrange kevIcon ion-chatboxes"></span> interactions matter, good for <span class="kevOrange">specification</span><br/><br/>
                 <span style="font-size: 18px;" class="kevGray"><span class="kevGray kevIcon ion-quote"></span> A request for goods first takes place (buyer to vendor).<br/>
@@ -278,6 +342,7 @@ shipper = receive(vendor, ship);
     <h2><span class="kevOrange kevIcon">></span>Choreography Development</h2>
 </section>
 
+<!--
 <section class="slide">
     <div>
         <h2><span class="kevOrange kevIcon ion-arrow-down-c"></span> Top-Down vs <span class="kevOrange kevIcon ion-arrow-up-c"></span> Bottom-Up Development</h2>
@@ -304,22 +369,35 @@ shipper = receive(vendor, ship);
         </ul>
     </div>
 </section>
+-->
 
 <section class="slide">
     <div>
-        <h2><span class="kevOrange kevIcon ion-speakerphone"></span> A Comment on (Formal) Models</h2>
+        <h2><span class="kevOrange kevIcon ion-arrow-down-c"></span> Top-Down Development</h2>
         <ul>
-            <li style="line-height: 32px;"><span class="kevOrange">Transition Systems</span> (LTS, STG) are used in the sequel as formal models<br/>
-                <i class="kevGray" style="font-size: 24px;">in these models, ! stands for emission and ? stands for reception</i>
-            </li><br/>
-            <li style="line-height: 32px;">Transition Systems are the <span class="kevOrange">semantics</span> of different formal languages,<br/>
-                <i class="kevGray" style="font-size: 24px;">e.g., Process Algebras (LNT, Chor)</i><br/>
-            Transition Systems may also result from <span class="kevOrange">model transformations</span><br/>
-            <i class="kevGray" style="font-size: 24px;">e.g., from Business Process languages and notations (WS-BPEL, BPMN)</i>
-            </li><br/>
+            <li style="line-height: 32px;">A form of <span class="kevOrange">generative</span> development<br/>
+                <i class="kevGray" style="font-size: 20px;">1. interaction skeletons are <span class="kevOrange kevIcon ion-gear-b"></span> generated using projection from the choreography<br/>
+                    2. conformance of the skeletons (composition) to the choreography is <span class="kevOrange kevIcon ion-gear-b"></span> verified<br/>
+                    3. interaction skeletons are <span class="kevOrange kevIcon ion-person"></span> implemented<br/></i>
+            </li>
         </ul>
         <div style="position:absolute;bottom:5px;right:30px;">
-            <img src="figures/models.png" style="opacity:1; width:980px;padding-top:10px;padding-left:10px;"/>
+            <img src="figures/topdown.png" style="opacity:1; width:980px;padding-top:10px;padding-left:10px;"/>
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2><span class="kevOrange kevIcon ion-arrow-up-c"></span> Bottom-Up Development</h2>
+        <ul>
+            <li style="line-height: 32px;">A form of development guided by <span class="kevOrange">reuse</span><br/>
+                <i class="kevGray" style="font-size: 20px;">1. local contracts are <span class="kevOrange kevIcon ion-gear-b"></span> extracted from reused (design time) or dynamically bound (runtime) peers<br/>
+                    2. conformance of the contracts (composition) to the choreography is <span class="kevOrange kevIcon ion-gear-b"></span> verified<br/></i>
+            </li>
+        </ul>
+        <div style="position:absolute;bottom:5px;right:30px;">
+            <img src="figures/bottomup.png" style="opacity:1; width:980px;padding-top:10px;padding-left:10px;"/>
         </div>
     </div>
 </section>
@@ -392,20 +470,6 @@ shipper = receive(vendor, ship);
     <h2><span class="kevOrange kevIcon">></span>VerChor</h2>
 </section>
 
-<!--
-<section class="slide">
-    <div>
-        <h2><span class="kevOrange kevIcon ion-thermometer"></span> Properties: Repairability (<span class="kevIcon ion-arrow-down-c"></span><span class="kevIcon ion-arrow-up-c"></span>)</h2>
-    </div>
-</section>
-
-<section class="slide">
-    <div>
-        <h2><span class="kevOrange kevIcon ion-settings"></span> Process: Controller Generation (<span class="kevIcon ion-arrow-down-c"></span><span class="kevIcon ion-arrow-up-c"></span>)</h2>
-    </div>
-</section>
--->
-
 <section class="slide">
     <div>
         <h2><span class="kevOrange kevIcon ion-arrow-down-c"></span> Choreography Development in VerChor</h2>
@@ -418,6 +482,20 @@ shipper = receive(vendor, ship);
 <section class="slide shout">
     <h2><span class="kevOrange kevIcon">></span>SChorA</h2>
 </section>
+
+    <!--
+<section class="slide">
+    <div>
+        <h2><span class="kevOrange kevIcon ion-thermometer"></span> Properties: Repairability (<span class="kevIcon ion-arrow-down-c"></span><span class="kevIcon ion-arrow-up-c"></span>)</h2>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2><span class="kevOrange kevIcon ion-settings"></span> Process: Controller Generation (<span class="kevIcon ion-arrow-down-c"></span><span class="kevIcon ion-arrow-up-c"></span>)</h2>
+    </div>
+</section>
+-->
 
 <!-- NE PAS TOUCHER LA SUITE -->
 
