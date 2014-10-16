@@ -416,12 +416,12 @@ shipper = receive(vendor, ship);
     <div>
     <h2><span class="kevOrange kevIcon">></span>VerChor</h2>
     <div style="position:absolute; bottom: 20px; right: 20px; font-size:20px;">
-        <span class="kevGray">[Poizat and Salaün, SAC'12]</span>,
+        <span class="kevGray">[Poizat and Salaün, SAC'12]</span>
         <span class="kevGray">[Güdemann et al, FASE'12]</span><br/>
     </div>
     <div style="position:absolute;bottom:0px;right:20px;font-size:18px;">
-        VerChor (Python) is available at <a href="http://pagesperso-systeme.lip6.fr/Pascal.Poizat/VerChor/">VerChor Framework</a>.
-        VerChor (Java) is ongoing work on <a href="https://github.com/pascalpoizat/verchor">GitHub</a>
+        <span class="kevGray">VerChor (Python) is available at <a href="http://pagesperso-systeme.lip6.fr/Pascal.Poizat/VerChor/">VerChor Framework</a>.</span>
+        <span class="kevGray">VerChor (Java) is ongoing work on <a href="https://github.com/pascalpoizat/verchor">GitHub</a>.</span>
     </div>
     </div>
 </section>
@@ -734,7 +734,16 @@ end select
 </section>
 
 <section class="slide shout">
+<div>
     <h2><span class="kevOrange kevIcon">></span>SChorA</h2>
+    <div style="position:absolute; bottom: 20px; right: 20px; font-size:20px;">
+        <span class="kevGray">[Nguyen et al, ICSOC'12]</span>
+        <span class="kevGray">[Nguyen et al, ISSRE'13]</span><br/>
+    </div>
+    <div style="position:absolute;bottom:0px;right:20px;font-size:18px;">
+        <span class="kevGray">SchorA is available at <a href="https://github.com/nhnghia/schora">GitHub</a></span>
+    </div>
+</div>
 </section>
 
     <!--
@@ -1056,7 +1065,7 @@ end select
                     possibility to have internal actions in peers, hence in implementations<br/>
                         <span class="kevIcon ion-arrow-right-c"></span> <span class="kevOrange">symbolic branching bisimulation</span>
                     </li>
-                    <li style="line-height: 32px;">conformance is not always just true or false<br/>
+                    <li style="line-height: 32px;" class="next">conformance is not always just true or false<br/>
                         <i class="kevGray" style="font-size:20px;">if x &ge; 0, Impl = ([x&ge;0] &triangleright; confirm[a,b].x + [x&lt;0] &triangleright; cancel[a,b].x) is conform to Spec = confirm[a,b].x</i><br/>
                         <span class="kevIcon ion-arrow-right-c"></span> <span class="kevOrange">most general constraint</span> for conformance<br/>
                     </li>
@@ -1076,7 +1085,7 @@ end select
                 </i>
             </li>
             <li style="line-height: 32px;width:900px;">compute the <span class="kevOrange">most general constraint</span> &rho; over data exchanged between peers to achieve conformance<br/>
-                <i style="font-size: 20px;" class="kevGray">modification of [Li and Chen, TACAS'99], from symbolic weak bisimulation to symbolic branching bisimulation<br/>
+                <i style="font-size: 20px;" class="kevGray">modification of [Li and Chen, TACAS'99], symbolic weak bisimulation &rightarrow; symbolic branching bisimulation<br/>
                     &rho; is obtained as a Predicate Equation System (PES)
                 </i>
             </li>
@@ -1085,7 +1094,7 @@ end select
                 </i>
             </li>
             <li style="line-height: 32px;width:900px;">reach <span class="kevOrange">verdict</span> (true / false / maybe / inconclusive)<br/>
-                <i style="font-size: 20px;" class="kevGray">if [&rho;=false] yields unsat then &rho; is always true and we have conformance<br/>
+                <i style="font-size: 20px;" class="kevGray">if [&rho;=false]&rightsquigarrow; unsat then &rho; is always true and we have conformance<br/>
                     else verdict based on [&rho;=true]: unsat &rightarrow; false, sat &rightarrow; maybe, and timeout &rightarrow; inconclusive
                 </i>
             </li>
@@ -1116,14 +1125,12 @@ end select
                     <th>synchr. communication</th>
                     <th>asynchr. communication</th>
                     <th>#causality semantics</th>
-                    <th>branching by data</th>
                 </tr>
                 <tr>
                     <td scope="row">[Sun et al, APSEC'10]</td>
                     <td>yes</td>
                     <td>no</td>
                     <td>1</td>
-                    <td>no</td>
                 </tr>
                 <tr>
             </table>
@@ -1131,13 +1138,18 @@ end select
         <div class="next">
             <div style="background: white; position:absolute;top:300px;font-size: 24px;">
                 <ul>
-                    <li style="line-height: 32px;">possibility to support the <span class="kevOrange">4 different causality semantics</span> for m[a,b]; n[c,d]<br/>
-                        <i class="kevGray" style="font-size: 20px;"> [Lanese et al, SEFM'08]<br/>synchronous: m[a,b]! &Precedes; n[c,d]! + synchronicity of sending/reception<br/>
-                            asynchronous: sending / m[a,b]! &Precedes; n[c,d]!, reception / m[a,b]? &Precedes; n[c,d]?, disjoint / m[a,b]? &Precedes; n[c,d]!<br/>
+                    <li style="line-height: 32px;"><span class="kevOrange">4 different causality semantics</span> for m[a,b]; n[c,d]<br/>
+                        <i class="kevGray" style="font-size: 20px;"> [Lanese et al, SEFM'08] synch, send-asynch, receive-asynch, disjoint-asynch
+                        </i><br/>
+                        <i class="kevGray" style="font-size: 20px;">o1[b,a]; o2[c,a]: <span class="kevIcon kevOrange ion-checkmark-round"></span> for synch, <span class="kevIcon kevOrange ion-close-round"></span> for send-asynch (b.o1! &Precedes; c.o2! not ensured)<br/>
+                        o1[a,b]; o2[a,c]: <span class="kevIcon kevOrange ion-checkmark-round"></span> for synch, <span class="kevIcon kevOrange ion-close-round"></span> for receive-asynch (b:o1? &Precedes; c.o2? not ensured)<br/>
+                        o1[a,b]; o2[c,a]: <span class="kevIcon kevOrange ion-checkmark-round"></span> for synch, <span class="kevIcon kevOrange ion-close-round"></span> for disjoint-asynch (b:o1? &Precedes; c.o2! not ensured)
                         </i>
                     </li>
-                    <li style="line-height: 32px;">benefit from <span class="kevOrange">branching by data</span> (less interactions added)<br/>
-                        <i class="kevGray" style="font-size: 20px;">o1[a,c].&lt;x&gt;; ([x&gt;0] |> o2[a,b] + [x&lt;0] |> o3[c,d])
+                    <li style="line-height: 32px;"><span class="kevOrange">full-support for data</span><br/>
+                        <i class="kevGray" style="font-size: 20px;">o1[c,a]&lt;x&gt;; [x&gt;0] |> o2[a,b]; [x&le;0] |> o3[c,d] is realizable (dead parts)
+                        </i><br/>
+                        <i class="kevGray" style="font-size: 20px;">o1[a,c].&lt;x&gt;; ([x&gt;0] |> o2[a,b] + [x&lt;0] |> o3[c,d]) is realizable (choice based on known data)
                         </i>
                     </li>
                     <li style="line-height: 32px;">realizability achieved using a <span class="kevOrange">smart projection</span><br/>
@@ -1159,17 +1171,17 @@ end select
                 </i>
             </li>
             <li style="line-height: 32px;width:900px;"><span class="kevOrange">connect</span> consecutive interactions with different sender/receiver<br/>
-                <i style="font-size: 20px;" class="kevGray">[Lanese et al, SEFM'08] e.g., o1[a,b].&lt;x&gt;; o2[c,d].&lt;y&gt; &rightarrow; o1[a,b].&lt;x&gt;; X[a,c]; o2[c,d].&lt;y&gt; (send-asynch.)
+                <i style="font-size: 20px;" class="kevGray">[Lanese et al, SEFM'08] e.g., o1[<span class="kevOrange">a</span>,b].&lt;x&gt;; o2[<span class="kevOrange">c</span>,d].&lt;y&gt; &rightarrow; o1[a,b].&lt;x&gt;; <span class="kevOrange">X[a,c]</span>; o2[c,d].&lt;y&gt; (send-asynch)
                 </i>
             </li>
             <li style="line-height: 32px;width:900px;"><span class="kevOrange">synchronize</span> choice branches<br/>
-                <i style="font-size: 20px;" class="kevGray">[Qiu et al, WWW'07] role-based, o1[a,b] + o2[a,c] + o3[d,e] &rightarrow; o1[a,b] + o2[a,c] + X[a,d]; o3[d,e] (send-asynch.)
+                <i style="font-size: 20px;" class="kevGray">[Qiu et al, WWW'07] role-based, o1[a,b] + o2[a,c] + o3[d,e] &rightarrow; o1[a,b] + o2[a,c] + X[a,d]; o3[d,e] (send-asynch)
                 </i>
                 <i style="font-size: 20px;" class="kevGray">nothing to do if data-based, o1[a,c].&lt;x&gt;; ([x&gt;0] |> o2[a,b] + [x&lt;0] |> o3[c,d])
                 </i>
             </li>
             <li style="line-height: 32px;width:900px;"><span class="kevOrange">exchange</span> information relative to data constraints between peers<br/>
-                <i style="font-size: 20px;" class="kevGray">o1[a,b].&lt;x&gt;; o2[c,d].x &rightarrow; o1[a,b].&lt;x&gt;; X[b,c].x; o2[c,d].x
+                <i style="font-size: 20px;" class="kevGray">o1[a,<span class="kevOrange">b</span>].<span class="kevOrange">&lt;x&gt;</span>; o2[<span class="kevOrange">c</span>,d].<span class="kevOrange">x</span> &rightarrow; o1[a,b].&lt;x&gt;;  <span class="kevOrange">X[b,c].x</span>; o2[c,d].x (disjoint-asynch)
                 </i>
             </li>
         </ol>
@@ -1178,12 +1190,54 @@ end select
 
 <section class="slide">
     <div>
-        <h2><span class="kevOrange kevIcon ion-speedometer"></span> Tool Support</h2>
-        <div style="position:absolute;bottom:0px;right:20px;">
-            <img src="code/ex1_conformance.png" style="opacity:1; width:950px;padding-top:10px;padding-left:10px;"/>
+        <h2><span class="kevOrange kevIcon ion-document-text"></span> Example</h2>
+        <div style="position:absolute;top:100px;right:20px;">
+            <img src="figures/schora_ex_1.png" style="opacity:1; width:500px;padding-top:10px;padding-left:10px;"/>
         </div>
-        <div style="position:absolute;bottom:0px;right:20px;font-size:18px;">
-         SchorA is available at <a href="https://github.com/nhnghia/schora">GitHub</a>
+        <div style="position:absolute;bottom:20px;left:20px;">
+            <img src="figures/schora_ex_3.png" style="opacity:1; width:600px;padding-top:10px;padding-left:10px;"/>
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2><span class="kevOrange kevIcon ion-document-text"></span> Example</h2>
+        <div style="position:absolute;top:100px;right:20px;">
+            <img src="figures/schora_ex_3.png" style="opacity:1; height:150px;padding-top:10px;padding-left:10px;"/>
+        </div>
+        <div style="position:absolute;bottom:200px;left:20px;">
+            <img src="figures/schora_ex_buyer0.png" style="opacity:1; height:150px;padding-top:10px;padding-left:10px;"/>
+        </div>
+        <div style="position:absolute;bottom:20px;left:20px;">
+            <img src="figures/schora_ex_vendor0.png" style="opacity:1; height:150px;padding-top:10px;padding-left:10px;"/>
+        </div>
+        <div style="position:absolute;bottom:200px;right:20px;">
+            <img src="figures/schora_ex_wharehouse0.png" style="opacity:1; height:150px;padding-top:10px;padding-left:10px;"/>
+        </div>
+        <div style="position:absolute;bottom:20px;right:20px;">
+            <img src="figures/schora_ex_shipper0.png" style="opacity:1; height:150px;padding-top:10px;padding-left:10px;"/>
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2><span class="kevOrange kevIcon ion-document-text"></span> Example</h2>
+        <div style="position:absolute;top:100px;right:20px;">
+            <img src="figures/schora_ex_3.png" style="opacity:1; height:150px;padding-top:10px;padding-left:10px;"/>
+        </div>
+        <div style="position:absolute;bottom:200px;left:20px;">
+            <img src="figures/schora_ex_buyer.png" style="opacity:1; height:150px;padding-top:10px;padding-left:10px;"/>
+        </div>
+        <div style="position:absolute;bottom:20px;left:20px;">
+            <img src="figures/schora_ex_vendor.png" style="opacity:1; height:150px;padding-top:10px;padding-left:10px;"/>
+        </div>
+        <div style="position:absolute;bottom:200px;right:20px;">
+            <img src="figures/schora_ex_wharehouse.png" style="opacity:1; height:150px;padding-top:10px;padding-left:10px;"/>
+        </div>
+        <div style="position:absolute;bottom:20px;right:20px;">
+            <img src="figures/schora_ex_shipper.png" style="opacity:1; height:150px;padding-top:10px;padding-left:10px;"/>
         </div>
     </div>
 </section>
