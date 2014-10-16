@@ -35,6 +35,7 @@
     <link type="text/css" rel="stylesheet" href="extra/shThemePascal.css"/>
     <script type="text/javascript" src="extra/syntaxhighlighter_3.0.83/scripts/shCore.js"></script>
     <script type="text/javascript" src="extra/syntaxhighlighter_3.0.83/scripts/shBrushPlain.js"></script>
+    <script type="text/javascript" src="extra/syntaxhighlighter_3.0.83/scripts/shBrushXml.js"></script>
     <script type="text/javascript">SyntaxHighlighter.all();</script>
 
     <!-- END for SyntaxHighlighter -->
@@ -322,7 +323,7 @@ shipper = receive(vendor, ship);
 
 <section class="slide">
     <div>
-        <h2><span class="kevOrange kevIcon ion-bag"></span> Conclusion (of the Introduction)</h2>
+        <h2>Conclusion on <span class="kevOrange kevIcon ion-earth"></span> Global vs. <span class="kevOrange kevIcon ion-pinpoint"></span> Local Views</h2>
         <ul>
             <li style="line-height: 32px;"><span class="kevOrange kevIcon ion-earth"></span> global view: <span class="kevOrange kevIcon ion-chatboxes"></span> interactions matter, good for <span class="kevOrange">specification</span><br/><br/>
                 <span style="font-size: 18px;" class="kevGray"><span class="kevGray kevIcon ion-quote"></span> A request for goods first takes place (buyer to vendor).<br/>
@@ -336,10 +337,6 @@ shipper = receive(vendor, ship);
             </li><br/>
         </ul>
     </div>
-</section>
-
-<section class="slide shout">
-    <h2><span class="kevOrange kevIcon">></span>Choreography Development</h2>
 </section>
 
 <section class="slide">
@@ -416,9 +413,16 @@ shipper = receive(vendor, ship);
 -->
 
 <section class="slide shout">
+    <div>
     <h2><span class="kevOrange kevIcon">></span>VerChor</h2>
-    <div style="position:absolute; top: 450px; left: 550px;">
-        <span class="kevGray">[Poizat and Salaün, SAC'12]</span><br/>
+    <div style="position:absolute; bottom: 20px; right: 20px; font-size:20px;">
+        <span class="kevGray">[Poizat and Salaün, SAC'12]</span>,
+        <span class="kevGray">[Güdemann et al, FASE'12]</span><br/>
+    </div>
+    <div style="position:absolute;bottom:0px;right:20px;font-size:18px;">
+        VerChor (Python) is available at <a href="http://pagesperso-systeme.lip6.fr/Pascal.Poizat/VerChor/">VerChor Framework</a>.
+        VerChor (Java) is ongoing work on <a href="https://github.com/pascalpoizat/verchor">GitHub</a>
+    </div>
     </div>
 </section>
 
@@ -451,13 +455,12 @@ shipper = receive(vendor, ship);
     <div>
         <h2><span class="kevOrange kevIcon ion-thermometer"></span> Realizability (<span class="kevIcon ion-arrow-down-c"></span>) & Conformance (<span class="kevIcon ion-arrow-up-c"></span>)</h2>
         <div style="position:absolute; top: 150px; width: 900px;">
-            <span class="kevOrange">objective:</span> check if peers can be implemented by (natural) projection / be reused<br/>
+            <span class="kevOrange">objective:</span> check if peers can be implemented by (natural) projection or be reused<br/>
         </div>
         <div class="next">
         <ul>
             <li style="line-height: 32px;"> <span class="kevOrange">realizable?(C)</span> &DoubleLeftRightArrow; C &equiv; &Pi;(C&downarrow;1, ..., C&downarrow;n)<br/>
                 <i style="font-size: 20px;" class="kevGray">where &Pi; is an operation that yields the semantics of the peers collaboration</i><br/>
-                <i style="font-size: 20px;" class="kevGray">different definitions in, e.g., [Kazhamiakin and Pistore, FORTE'06] and [Basu et al, POPL'12]</i>
             </li>
             <li style="line-height: 32px;"> <span class="kevOrange">realizable?(C)</span> &DoubleLeftRightArrow; synchronizable?(C&downarrow;1, ..., C&downarrow;n) &wedge; C &equiv; synch(C&downarrow;1, ..., C&downarrow;n)<br/>
                 <i style="font-size: 20px;" class="kevGray">[Basu et al, POPL'12]</i>
@@ -488,9 +491,14 @@ shipper = receive(vendor, ship);
         <div style="position:absolute;bottom:30px;right:100px;">
             <img src="figures/overview.png" style="opacity:1; width:750px;padding-top:10px;padding-left:10px;"/>
         </div>
-        <div style="position:absolute;bottom:0px;right:20px;font-size:18px;">
-            VerChor (Python) is available at <a href="http://pagesperso-systeme.lip6.fr/Pascal.Poizat/VerChor/">VerChor Framework</a>.
-            VerChor (Java) is ongoing work on <a href="https://github.com/pascalpoizat/verchor">GitHub</a>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2><span class="kevOrange kevIcon ion-document-text"></span> Online Shopping 1.0: BPMN</h2>
+        <div style="position:absolute;bottom:0px;right:50px;">
+            <img src="figures/onlineshopping_1.png" style="opacity:1; width:920px;padding-top:10px;padding-left:10px;"/>
         </div>
     </div>
 </section>
@@ -517,6 +525,78 @@ shipper = receive(vendor, ship);
             </div>
     </div>
 </section>
+
+<section class="slide">
+    <div>
+        <h2><span class="kevOrange kevIcon ion-document-text"></span> Online Shopping 1.0: CIF</h2>
+       <span style="font-size: 9pt; position:absolute;bottom:90px;left:20px;">
+            <script type="syntaxhighlighter" class="brush:xml toolbar:false; gutter:false;"><![CDATA[
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<choreography xmlns="http://convecs.inria.fr">
+    <choreoID>online_shopping_v1</choreoID>
+    <participants>
+        <peer>
+            <peerID>Client</peerID>
+        </peer>
+        <peer>
+            <peerID>Seller</peerID>
+        </peer>
+        <peer>
+            <peerID>Bank</peerID>
+        </peer>
+        <peer>
+            <peerID>Provider</peerID>
+        </peer>
+    </participants>
+    <alphabet>
+        <message>
+            <msgID>ChoreographyTask_10</msgID>
+            <sender>Seller</sender>
+            <receiver>Client</receiver>
+            <messageContent>totalValue</messageContent>
+        </message>
+        <!-- 9 other messages -->
+    </alphabet>
+       </script></span>
+       <span style="font-size: 9pt; position:absolute;bottom:0px;right:0px;">
+            <script type="syntaxhighlighter" class="brush:xml toolbar:false; gutter:false;"><![CDATA[
+    <stateMachine>
+        <initial>
+            <stateID>StartEvent_1</stateID>
+            <successors>ChoreographyTask_11</successors>
+        </initial>
+        <interaction>
+            <stateID>ChoreographyTask_10</stateID>
+            <successors>ParallelGateway_6</successors>
+            <msgID>ChoreographyTask_10</msgID>
+        </interaction>
+        <!-- 9 other interactions -->
+        <allJoin>
+            <stateID>ParallelGateway_6</stateID>
+            <successors>ExclusiveGateway_2</successors>
+        </allJoin>
+        <simpleJoin>
+            <stateID>ExclusiveGateway_2</stateID>
+            <successors>EndEvent_1</successors>
+        </simpleJoin>
+        <allJoin>
+            <stateID>ParallelGateway_2</stateID>
+            <successors>ExclusiveGateway_2</successors>
+        </allJoin>
+        <allSelect>
+            <stateID>ParallelGateway_1</stateID>
+            <successors>ChoreographyTask_4 ChoreographyTask_5</successors>
+        </allSelect>
+        <!-- 4 other gateways -->
+        <final>
+            <stateID>EndEvent_1</stateID>
+        </final>
+    </stateMachine>
+</choreography>
+       </script></span>
+    </div>
+</section>
+
 
 <section class="slide">
     <div>
@@ -628,6 +708,31 @@ end select
         </ul>
     </div>
 </section>
+
+<section class="slide">
+    <div>
+        <h2><span class="kevOrange kevIcon ion-document-text"></span> Online Shopping 1.0: LNT and SVL</h2>
+        <div style="position:absolute;bottom:5px;left:30px;">
+            <img src="figures/onlineshopping_lnt.png" style="opacity:1; width:420px;padding-top:10px;padding-left:10px;"/>
+        </div>
+        <div style="position:absolute;bottom:5px;right:30px;">
+            <img src="figures/onlineshopping_svl.png" style="opacity:1; width:420px;padding-top:10px;padding-left:10px;"/>
+        </div>
+        <div style="position:absolute;bottom:60px;right:250px;width:520px;background-color: orange">
+            <img src="figures/onlineshopping_result.png" style="opacity:1; width:500px;padding-top:10px;padding-left:10px;"/>
+        </div>
+    </div>
+</section>
+
+<section class="slide">
+    <div>
+        <h2><span class="kevOrange kevIcon ion-document-text"></span> Online Shopping 2.0: BPMN</h2>
+        <div style="position:absolute;bottom:0px;right:50px;">
+            <img src="figures/onlineshopping_2.png" style="opacity:1; width:900px;padding-top:10px;padding-left:10px;"/>
+        </div>
+    </div>
+</section>
+
 <section class="slide shout">
     <h2><span class="kevOrange kevIcon">></span>SChorA</h2>
 </section>
