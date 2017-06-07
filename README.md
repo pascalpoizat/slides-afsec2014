@@ -1,6 +1,9 @@
 # slides-afsec2014
 
-Slides of my talk at the AFSEC meeting, Oct 16th, 2014
+Slides of a series of talks on "Formal Development of Choreographic Business Processes".
+
+- v1.0 : AFSEC meeting, Oct 16th, 2014
+- v1.1 : Presentation at LIMOS, June 8th, 2017
 
 &rightarrow; [slideshow](https://pascalpoizat.github.io/slides-afsec2014)
 
