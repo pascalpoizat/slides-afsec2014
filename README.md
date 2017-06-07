@@ -1,6 +1,6 @@
 # slides-afsec2014
 
-Slides of a series of talks on "Formal Development of Choreographic Business Processes".
+Slides of a series of talks on the formal development of choreographic business processes.
 
 - v1.0 : AFSEC meeting, Oct 16th, 2014
 - v1.1 : Presentation at LIMOS, June 8th, 2017
