@@ -6,13 +6,13 @@
  	color: #DF9D00;
 }
 .kevGray {
-	color: #666;
+	color: #5E5D5D; /* 666 */
 }
 .kevGreen {
 	color: #00CC66;
 }
 .kevRed {
-	color: #E80000;
+	color: #E30613; /* E80000 */
 }
 
 @font-face {
@@ -245,7 +245,7 @@ a {
     }
   }
   a {
-    border-bottom: .1em solid;
+    /* border-bottom: .1em solid; */
     color: #4b86c2;
   }
   b, strong {
