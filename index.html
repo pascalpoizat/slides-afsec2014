@@ -510,8 +510,9 @@ shipper = receive(vendor, ship);
         <h2><span class="kevOrange kevIcon ion-merge"></span> Choreography Intermediate Format (CIF)</h2>
             <ul>
                 <li style="line-height: 32px;"> <span class="kevOrange">pivot model</span> for choreography-related model transformation<br/>
-                    <i style="font-size: 20px;" class="kevGray">front-ends: BPMN Choreography Diagrams, Conversation Protocols, (ongoing: ChorD)</i><br/>
-                    <i style="font-size: 20px;" class="kevGray">back-ends: LNT, (ongoing: STG, Petri Nets)</i>
+                    <i style="font-size: 20px;" class="kevGray">front-end: BPMN</i><br/>
+                    <i style="font-size: 20px;" class="kevGray">back-end: LNT</i><br/>
+                    <span class="kevOrange kevIcon ion-settings"></span> <i style="font-size: 20px;" class="kevGray">currently being evolved into PIF</i>
                 </li><br/>
                 <li style="line-height: 32px;"> <span class="kevOrange">workflow constructs</span><br/>
                     <i style="font-size: 20px;" class="kevGray">inspired but simplified wrt. BPMN</i><br/>
@@ -519,7 +520,7 @@ shipper = receive(vendor, ship);
                 </li><br/>
                 <li style="line-height: 32px;"> <span class="kevOrange">BPMN &rightarrow; CIF</span> model transformation<br/>
                     <i style="font-size: 20px;" class="kevGray">plain old Java over EMF meta-models</i><br/>
-                    <i style="font-size: 20px;" class="kevGray">part of the framework for Formal Model Transformations</i>
+                    <i style="font-size: 20px;" class="kevGray">part of the <a href="http://github.com/pascalpoizat/fmt">Formal Model Transformations framework</a></i>
                 </li><br/>
             </ul>
             <div style="position:absolute;bottom:5px;right:30px;">
@@ -602,7 +603,7 @@ shipper = receive(vendor, ship);
 
 <section class="slide">
     <div>
-        <h2><span class="kevOrange kevIcon ion-settings"></span> CIF &rightarrow; LNT</h2>
+        <h2><span class="kevOrange kevIcon ion-gear-b"></span> CIF &rightarrow; LNT</h2>
             <ul>
                 <li style="line-height: 32px;"> <span class="kevOrange">state machine encoding</span><br/>
                     <i style="font-size: 20px;" class="kevGray">LNT (LOTOS NT) process algebra</i><br/>
@@ -692,7 +693,7 @@ end select
 
 <section class="slide">
     <div>
-        <h2><span class="kevOrange kevIcon ion-settings"></span> Verification Scripts (SVL)</h2>
+        <h2><span class="kevOrange kevIcon ion-gear-b"></span> Verification Scripts (SVL)</h2>
         <ul>
             <li style="line-height: 32px;"> <span class="kevOrange">SVL scripts</span> are generated to compute models (LTS)<br/>
                 <i style="font-size: 20px;" class="kevGray">choreography model</i><br/>
@@ -961,8 +962,8 @@ end select
         <h2><span class="kevOrange kevIcon ion-help-buoy"></span> Symbolic Transition Graphs (STG)</h2>
         <ul>
             <li style="line-height: 32px;">Labelled Transition Systems <span class="kevOrange">extended with support for data</span><br>
-             <i style="font-size: 20px;" class="kevGray">[Hennessy and Lin, TCS:138(2), 1995]
-                 with renamings/extensions (STGA, STS, IOLTS, ...) by others<br/>
+             <i style="font-size: 20px;" class="kevGray">[Hennessy and Lin, TCS:138(2), 1995],
+             renamings/extensions (STGA, STS, IOLTS, ...) by others<br/>
                  used for symbolic verification, e.g., WS-BPEL testing in [Bentakouk et al, TESTCOM'07]
              </i>
             </li><br/>
@@ -1062,7 +1063,7 @@ end select
       <div class="next">
             <div style="background: white; position:absolute;top:350px;font-size: 24px;">
                 <ul>
-                    <li style="line-height: 32px;">closure does not work for open choreographies, e.g., <span class="kevGray" style="font-size:20px;">o1[a,b].&lt;x&gt;; [x&gt;0] |> o2[b,a].x</span><br/>
+                    <li style="line-height: 32px;">closure does not work for open choreographies, e.g., <span class="kevGray" style="font-size:20px;">o1[a,b].&lt;x&gt;; [x&gt;0] &triangleright; o2[b,a].x</span><br/>
                         bound domains still yield state space explosion if LTS are used<br/>
                     possibility to have internal actions in peers, hence in implementations<br/>
                         <span class="kevIcon ion-arrow-right-c"></span> <span class="kevOrange">symbolic branching bisimulation</span>
@@ -1149,9 +1150,9 @@ end select
                         </i>
                     </li>
                     <li style="line-height: 32px;"><span class="kevOrange">full-support for data</span><br/>
-                        <i class="kevGray" style="font-size: 20px;">o1[c,a]&lt;x&gt;; [x&gt;0] |> o2[a,b]; [x&le;0] |> o3[c,d] is realizable (dead parts)
+                        <i class="kevGray" style="font-size: 20px;">o1[c,a]&lt;x&gt;; [x&gt;0] &triangleright; o2[a,b]; [x&le;0] &triangleright; o3[c,d] is realizable (dead parts)
                         </i><br/>
-                        <i class="kevGray" style="font-size: 20px;">o1[a,c].&lt;x&gt;; ([x&gt;0] |> o2[a,b] + [x&lt;0] |> o3[c,d]) is realizable (choice based on known data)
+                        <i class="kevGray" style="font-size: 20px;">o1[a,c].&lt;x&gt;; ([x&gt;0] &triangleright; o2[a,b] + [x&lt;0] &triangleright; o3[c,d]) is realizable (choice based on known data)
                         </i>
                     </li>
                     <li style="line-height: 32px;">realizability achieved using a <span class="kevOrange">smart projection</span><br/>
@@ -1166,7 +1167,7 @@ end select
 
 <section class="slide">
     <div>
-        <h2><span class="kevOrange kevIcon ion-settings"></span> Smart Projection</h2>
+        <h2><span class="kevOrange kevIcon ion-gear-b"></span> Smart Projection</h2>
         <ol>
             <li style="line-height: 32px;width:900px;"><span class="kevOrange">prune</span> unreachable transitions and states<br/>
                 <i style="font-size: 20px;" class="kevGray">these are parts of the choreography that are not consistent
@@ -1177,7 +1178,7 @@ end select
                 </i>
             </li>
             <li style="line-height: 32px;width:900px;"><span class="kevOrange">synchronize</span> choice branches<br/>
-                <i style="font-size: 20px;" class="kevGray">[Qiu et al, WWW'07] role-based, o1[a,b] + o2[a,c] + o3[d,e] &rightarrow; o1[a,b] + o2[a,c] + X[a,d]; o3[d,e] (send-asynch)
+                <i style="font-size: 20px;" class="kevGray">[Qiu et al, WWW'07] role-based, o1[<span class="kevOrange">a</span>,b] + o2[<span class="kevOrange">a</span>,c] + o3[<span class="kevOrange">d</span>,e] &rightarrow; o1[a,b] + o2[a,c] + <span class="kevOrange">X[a,d]</span>; o3[d,e] (send-asynch)
                 </i>
                 <i style="font-size: 20px;" class="kevGray">nothing to do if data-based, o1[a,c].&lt;x&gt;; ([x&gt;0] |> o2[a,b] + [x&lt;0] |> o3[c,d])
                 </i>
@@ -1282,9 +1283,9 @@ end select
             <i class="kevGray" style="font-size: 24px;">tool development - VerChor and SChorA (both     open source)</i>
         </li><br/>
         <li style="line-height: 32px;"><span class="kevOrange">going further?</span><br/>
-            <i class="kevGray" style="font-size: 24px;">study new developments on classes of choreographies</i><br/>
-            <i class="kevGray" style="font-size: 24px;">choreographies and dynamic system evolution</i><br/>
-            <i class="kevGray" style="font-size: 24px;">application of the symbolic approach (SChorA) to BPM</i>
+            <i class="kevGray" style="font-size: 24px;">you like <span class="kevOrange">theoretical issues</span> &rightarrow; classes of choreographies or parameterized BP</i><br/>
+            <i class="kevGray" style="font-size: 24px;">you like <span class="kevOrange">practical issues</span> &rightarrow; BP evolution or BP product lines</i><br/>
+            <i class="kevGray" style="font-size: 24px;">you want to <span class="kevOrange">play collective</span> &rightarrow; join us on PIF and BP verification API</i>
         </li><br/>
     </ul>
 </div>
